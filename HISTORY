@@ -8,7 +8,7 @@
    http://www.biscom.net/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.10 2002/09/11 15:39:36 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.11 2002/10/02 22:37:20 cade Exp $
 
       + feature add
       - feature changed
@@ -19,6 +19,8 @@
    3.05:  18.Aug.2002
    
      ! 1. Fixed rxvt emulation BS handling.
+          (actually found why is that... to fix this issue
+           add `Rxvt*backspacekey: ^H' line to your .Xdefaults) 
      + 2. Ctrl+A/E in file list are Home/End.
      + 3. Ctrl+A/E/D in all input lines are Home/End/Del.     
      + 4. Added octal mode change (key TAB, edit entry menu).
