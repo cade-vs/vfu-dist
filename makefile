@@ -1,15 +1,15 @@
-### MAKEMAKE STARTS HERE #########################################
-#
-# Created by makemake.pl on Fri Nov  8 01:50:34 2002
-#
-##################################################################
 
-### GLOBAL TARGETS ###############################################
+### MAKEMAKE STARTS HERE #######################################################
+
+
+### Created by makemake.pl on Sun Dec 15 20:23:25 2002 #########################
+
+
+### GLOBAL TARGETS #############################################################
 
 default: all
 
 re: rebuild
-
 
 li: link
 
@@ -21,13 +21,21 @@ rebuild: rebuild-modules
 
 link: link-modules 
 
-### GLOBAL DEFS ##################################################
+### GLOBAL (AND USER) DEFS #####################################################
 
-MKDIR      = mkdir -p
-RMDIR      = rm -rf
-RMFILE     = rm -f
 
-### MODULES #####################################################
+AR = ar rv
+CC = gcc
+LD = gcc
+MKDIR = mkdir -p
+MODULES = vslib vfu
+RANLIB = ranlib
+RMDIR = rm -rf
+RMFILE = rm -f
+SRC = *.c *.cpp *.cc *.cxx
+
+
+### MODULES ####################################################################
 
 modules:
 	make -C vslib 
@@ -46,4 +54,5 @@ link-modules:
 	make -C vfu link
 
 
-### MAKEMAKE ENDS HERE ###########################################
+### MAKEMAKE ENDS HERE #########################################################
+

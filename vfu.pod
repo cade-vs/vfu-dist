@@ -165,6 +165,6 @@ unknown
 
  Vladi Belperchinov-Shabanski "Cade"
  <cade@biscom.net> <cade@datamax.bg>
- http://www.biscom.net/~cade/
- http://www.biscom.net/~cade/vfu
+ http://soul.datamax.bg/~cade/
+ http://soul.datamax.bg/~cade/vfu
 

@@ -8,7 +8,7 @@
    http://www.biscom.net/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.15 2002/11/27 21:21:21 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.16 2002/12/15 18:26:58 cade Exp $
 
       + feature add
       - feature changed
@@ -16,6 +16,11 @@
       ! bugfix
       % note
 
+   4.01:  12.Dec.2002
+   
+     ! 1. Various small fixes (logic and memory alloc/dealloc).
+     ! 2. SeeViewer is now fixed for screens larger than 80 columns.
+   
    4.00:  27.Nov.2002
    
      % 0. Hope this is the new next stage in the VFU development :)  
