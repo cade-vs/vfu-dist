@@ -129,6 +129,9 @@
        ends with number, VFU will sort them in regard to the numeric
        values found at the ends of the filenames.
 
+       (real parsing re is "^(.*)([0123456789]+)(\\.(.*))?$" if you
+        know what this means:))
+
        NOTE: This mode drops all after the first dot!
        NOTE: This mode resets on exit!
  
@@ -337,6 +340,7 @@
 
 
    19. What does Tools/RenameTools/SiplifyName do?
+       
        First replaces all `special' symbols as `'&\"/ etc with _
        then it compresses all repeating _'s and finally it replaces
        `_-_' with `-'.
@@ -344,9 +348,19 @@
        NOTE: I accept any suggestions for this feature behaviour!
 
    20. How can I purge directory sizes cache?
+       
        The sizes cache is flushed on directory tree rebuild.
+
+   21. Why I cannot execute image viewer (or any prog) on a file
+       inside archive? It reports `file not found' error?
+       
+       The problem is when you want to spawn image viewer with `&'
+       on background. At this point VFU has taken control back and
+       temporary file/dir is removed. There is no slick solution to
+       this and only workaround is to remove `&' from your command.
  
    99. I don't/do like feature X, can I turn it OFF/ON?
+   
        I tried to give option for every arguable behavior of
        most features. So you have to check `Options' menu (key O
        inside VFU) and vfu.conf file to find out how to solve the

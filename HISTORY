@@ -23,14 +23,37 @@
           the cache will act faster but you won't get sizes for
           symlinked dirs.
 
-     + 2. Added `Randomize' function to file lsit arrange menu.
+     + 2. Added `Randomize' function to file list arrange menu.
 
      ! 3. Rename tools now work on filename only, not on the full
           pathname (usual bug in recursive scanning -- Ctrl+R)
 
      ! 4. Fixed loops on incremental searches in the files list and
           directory tree.
-          
+
+     + 5. Actual files size is now reported before copy/move.
+     
+     + 6. Size chache is now auto-cleaned on dir size recalculation.
+
+     + 7. Now errors on copy/move/symlink/erase can be ignored (always
+          skipped quietly).
+
+     ! 8. Temporary files used for view filters are now removed.
+
+     ! 9. Now all temporary files and directories are set owner
+          read/write/traverse permission only.
+
+     !10. Fixed problem with browsing/user commands for files inside
+          archive.
+
+     !11. Fixed problem when quit unsaved file that cannot be saved
+          from the internal editor.
+
+     !12. Fixed `Name###' arrange mode.
+
+     +13. Now file list can be sorted separately by modify, change and
+          access time.
+     
    3.03:  31.Dec.2000
    
      ! 1. Documentation fixed to address directory bookmarks in the
