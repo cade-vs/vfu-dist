@@ -7,13 +7,18 @@
    http://soul.datamax.bg/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.22 2003/07/05 22:37:58 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.23 2004/12/29 02:49:46 cade Exp $
 
       + feature add
       - feature changed
       x feature removed
       ! bugfix
       % note
+
+   4.04:  07.Jun.2003
+   
+	 + 1. "View differences" menu option added for overwrite file (copy).
+	      This can be used to preview files before overwriting.
 
    4.03:  15.Jun.2003
    
