@@ -20,7 +20,7 @@ Keywords:       console file manager unix portable
 Author:         cade@datamax.bg (Vladi Belperchinov-Shabanski)
 Maintained-by:  cade@biscom.net (Vladi Belperchinov-Shabanski)
 Primary-site:   metalab.unc.edu /pub/Linux/utils/file/managers
-                300kB vfu-3.04.src.tar.gz
+                200kB vfu-3.04.src.tar.gz
 Original-site:  http://www.biscom.net/~cade/vfu
 Platforms:      UNIX (Linux, Solaris, NetBSD, ...), DOS/Win9X
 Copying-policy: GPL
