@@ -8,7 +8,7 @@
    http://www.biscom.net/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.5 2002/01/01 16:36:56 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.6 2002/04/26 07:27:52 cade Exp $
 
       + feature add
       - feature changed
@@ -16,7 +16,7 @@
       ! bugfix
       % note
 
-   3.04:  01.Jan.2002
+   3.04:  25.Aug.2002
    
      + 1. Added FastSizeCache option -- turns off directory
           resolving for directory size cache which means that
@@ -57,6 +57,11 @@
      !14. Fixed directory size cache for symlink-ed dirs. 
 
      !15. Now VFU accepts trigger `.automount' just like `automount'.
+
+     !16. Now extension colors loaded from DIR_COLORS are added to
+          those from vfu.conf (not overwritten)
+
+     !17. Internal: changed all PSZCluster+StrSplitter to VArray+VTrie
      
    3.03:  31.Dec.2000
    
