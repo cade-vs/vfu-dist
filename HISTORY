@@ -8,7 +8,7 @@
    http://www.biscom.net/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.11 2002/10/02 22:37:20 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.12 2002/10/09 08:46:00 cade Exp $
 
       + feature add
       - feature changed
@@ -27,6 +27,7 @@
      + 5. Fixed global select masking for recursive file lists.
      - 6. Now `Lowercase extensions for configs' is on by default.
      ! 7. Settings are saved immediately after options change.
+     ! 8. Fixed directory sizes cache cleaning.
 
    3.04:  24.May.2002
 

@@ -12,6 +12,7 @@
  
   Rxvt        is my configuration for rxvt
               (/var/X11R6/lib/app-defaults/Rxvt)
+              OBSOLETE: see Xdefaults
  
   vfu-bash    is a bash function that enables
               vfu to change working directory
@@ -20,5 +21,8 @@
               . ./vfu-bash
               note the leading dot!
 
+  Xdefaults   contains some fixes to allow easier
+              VFU usage under X (mostly rxvt issues)
+  
   Vladi.
  
