@@ -7,7 +7,7 @@
    http://soul.datamax.bg/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.20 2003/04/28 17:32:00 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.21 2003/05/06 12:12:26 cade Exp $
 
       + feature add
       - feature changed
@@ -15,11 +15,15 @@
       ! bugfix
       % note
 
+   4.02:  06.May.2003
+
+     ! 1. Compilation problem fixed.
+
    4.01:  28.Apr.2003
-   
+ 
      % 0. VFU is now recompiled with the new vslib which features strings,
           arrays and tries (hashes) with referenced data (shared).
-     
+ 
      ! 1. Various small fixes (logic and less memory alloc/dealloc).
      ! 2. SeeViewer is now fixed for screens larger than 80 columns.
      ! 3. Fixed Lynx-style navigation.
@@ -37,17 +41,17 @@
 	 +11. Directory bookmarks are no attached to a key (`) and new option
 	      to temporary run-time bookmarking has been added (`A' inside the
 		  bookmarks menu).
-   
+ 
    4.00:  27.Nov.2002
-   
-     % 0. Hope this is the new next stage in the VFU development :)  
-   
+ 
+     % 0. Hope this is the new next stage in the VFU development :)
+ 
      ! 1. Fixed rxvt emulation BS handling.
           (actually found why is that... to fix this issue
-           add `Rxvt*backspacekey: ^H' line to your .Xdefaults) 
-     
+           add `Rxvt*backspacekey: ^H' line to your .Xdefaults)
+ 
      + 2. Ctrl+A/E in file list are Home/End.
-     + 3. Ctrl+A/E/D in all input lines are Home/End/Del.     
+     + 3. Ctrl+A/E/D in all input lines are Home/End/Del.
      + 4. Added octal mode change (key TAB, edit entry menu).
      + 5. Fixed global select masking for recursive file lists.
      - 6. Now `Lowercase extensions for configs' is on by default.
@@ -56,7 +60,7 @@
      ! 9. Fixed all input lines to allow full ascii range (32..255).
      !10. rx_* tools are completely rewritten!
      -11. rx_ftp now uses Net::FTP instead of external ftparc utility.
-     
+ 
    3.04:  24.May.2002
 
      % 0. This version should be named over `04' as result of
@@ -79,7 +83,7 @@
           directory tree.
 
      + 5. Actual files size is now reported before copy/move.
-     
+ 
      + 6. Size chache is now auto-cleaned on dir size recalculation.
 
      + 7. Now errors on copy/move/symlink/erase can be ignored (always
@@ -100,8 +104,8 @@
 
      +13. Now file list can be sorted separately by modify, change and
           access time.
-    
-     !14. Fixed directory size cache for symlink-ed dirs. 
+ 
+     !14. Fixed directory size cache for symlink-ed dirs.
 
      !15. Now VFU accepts trigger `.automount' just like `automount'.
 
@@ -111,16 +115,16 @@
      !17. Internal: changed all PSZCluster+StrSplitter to VArray+VTrie
 
      !18. Fixed configuration file problems (missing archives etc.)
-     
+ 
      !19. SIGWINCH finally works, i.e. VFU redraws on terminal resize
           (please report any problems regarding this one!)
-     
+ 
    3.03:  31.Dec.2000
-   
+ 
      ! 1. Documentation fixed to address directory bookmarks in the
           vfu.conf correctly. ( bookmark#=path )
-     
-     ! 2. Added option for VFU to handle Ctrl+Z, Ctrl+C, Ctrl+\ as 
+ 
+     ! 2. Added option for VFU to handle Ctrl+Z, Ctrl+C, Ctrl+\ as
           it is expected (suspend,interrupt,quit).
       To use it you have to export UNICON_NO_RAW environment var
       with any value. ( for bash: `export UNICON_NO_RAW=1' )
@@ -134,7 +138,7 @@
      + 6. Now directory sizes cache is removed from the directory
           tree, so you can have directory sizes saved even if you
           don't have directory tree built.
-   
+ 
    3.02:  01.Aug.2000
  
      ! 1. Several DJGPP (DOS/Win9x) portability fixups.
@@ -142,11 +146,11 @@
      ! 3. Fixed directory tree sizes calculation.
      + 4. Added inode size cache for directories that are new to
           the currently saved directory tree. (unix version only)
-     
+ 
      ! 5. Fixed major bug in file move procedure.
      ! 6. Fixed extension masking `for all' in user externals.
-     - 7. Now all path lists in vfu.conf (like TrimTree) are 
-          `:' separated (or `;' for dos version) 
+     - 7. Now all path lists in vfu.conf (like TrimTree) are
+          `:' separated (or `;' for dos version)
 
    3.01:  07.Jun.2000
  
