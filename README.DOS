@@ -1,4 +1,8 @@
 
+$Id: README.DOS,v 1.2 2002/04/26 07:39:37 cade Exp $
+
+  FAR PRELIMINARY :)
+
   this file contains some hints how to compile vfu under dos/djgpp
  
   1. you have to edit makefile's in the vslib and vfu directories

@@ -1,18 +1,18 @@
 
-
+$Id: README,v 1.2 2002/04/26 07:39:37 cade Exp $
 
    VF File Manager for Unix/Linux ( VFU )
    by Vladi Belperchinov-Shabanski "Cade" <cade@biscom.net>
    http://www.biscom.net/~cade/vfu
 
    ------------------------------------------------------------------
-   
+ 
    PLEASE SEND A MESSAGE THAT CONTAINS `I'M USING/EVALUATING VFU'
    TO <cade@biscom.net>. I WANT TO KEEP TRACK OF THE INTEREST IN VFU!
-                                                
+ 
 						Thank you in advance!
-   
-   
+ 
+ 
    DISCLAIMER AND LICENSE
 
          VFU is distributed AS IS w/o warranty of any kind.
@@ -27,14 +27,14 @@
 
 
    NOTE
-   
+ 
         This file was a vfu documentation file once, now it is split
         into separated files ( INSTALL, HISTORY, FAQ, TODO, etc... )
 
 
    AUTHOR
 
-         Vladi Belperchinov-Shabanski "Cade". 
+         Vladi Belperchinov-Shabanski "Cade".
 	 <cade@biscom.net> <cade@datamax.bg>
 
    ---eof------------------------------------------------------------

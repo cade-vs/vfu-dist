@@ -1,4 +1,6 @@
 
+$Id: XWINDOW.NOTES,v 1.2 2002/04/26 07:39:37 cade Exp $
+
   This file contains some hints for using VFU under XWindow,
   i.e. in a xterm, rxvt or other compatible(?) terminal.
 
@@ -27,7 +29,7 @@
 
   If you want to use keypad for navigation (arrows, +, -, ...)
   and your keypad is mapped to numbers (KP_1 ... KP_9, etc.)
-  you have to add these lines to your Xmodmap ( normally
+  you have to add these lines to your Xmodmap ( usually located at
   /var/X11R6/lib/xinit/.Xmodmap )
 
   ---cut---
