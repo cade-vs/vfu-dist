@@ -114,13 +114,13 @@ binary package for version X.xx for `platform' platform
 
 examples:
 
- vfu-3.04.src.tgz
+ vfu-4.00.src.tgz
 
- vfu-3.04.bin.linux.glibc.tgz
+ vfu-4.00.bin.linux.glibc.tgz
 
- vfu-3.04.bin.linux.libc5.tgz
+ vfu-4.00.bin.linux.libc5.tgz
 
- vfu-3.04.bin.dos.tgz
+ vfu-4.00.bin.dos.tgz
 
 All packages are TAR+GZIP .tgz, bz2 and zip are available on request.
 

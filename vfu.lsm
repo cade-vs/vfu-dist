@@ -1,7 +1,7 @@
 Begin3
 Title:          VFU File Manager
-Version:        3.04
-Entered-date:   24MAY2002
+Version:        4.00
+Entered-date:   27NOV2002
 Description:    VFU is console (text mode) file manager for UNIX.
                 It has all usual file oprations plus more:
                 - extended completition and wildcard expansion
@@ -14,14 +14,14 @@ Description:    VFU is console (text mode) file manager for UNIX.
                 - regular expressions selection and search
                 - multiple file masks
                 - one-key commands
-                - session saving (automatic)
+                - session saving
                 - more...
 Keywords:       console file manager unix portable
 Author:         cade@datamax.bg (Vladi Belperchinov-Shabanski)
 Maintained-by:  cade@biscom.net (Vladi Belperchinov-Shabanski)
 Primary-site:   metalab.unc.edu /pub/Linux/utils/file/managers
-                200kB vfu-3.04.src.tar.gz
-Original-site:  http://www.biscom.net/~cade/vfu
+                200kB vfu-4.00.src.tar.gz
+Original-site:  http://soul.datamax.bg/~cade/vfu
 Platforms:      UNIX (Linux, Solaris, NetBSD, ...), DOS/Win9X
 Copying-policy: GPL
 End

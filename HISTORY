@@ -8,7 +8,7 @@
    http://www.biscom.net/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.14 2002/11/07 23:53:50 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.15 2002/11/27 21:21:21 cade Exp $
 
       + feature add
       - feature changed
@@ -16,12 +16,15 @@
       ! bugfix
       % note
 
-   3.05:  07.Nov.2002
+   4.00:  27.Nov.2002
+   
+     % 0. Hope this is the new next stage in the VFU development :)  
    
      ! 1. Fixed rxvt emulation BS handling.
           (actually found why is that... to fix this issue
            add `Rxvt*backspacekey: ^H' line to your .Xdefaults) 
-     + 2. Ctrl+A/E in file list are Home/End.
+     
+	 + 2. Ctrl+A/E in file list are Home/End.
      + 3. Ctrl+A/E/D in all input lines are Home/End/Del.     
      + 4. Added octal mode change (key TAB, edit entry menu).
      + 5. Fixed global select masking for recursive file lists.
@@ -29,7 +32,8 @@
      ! 7. Settings are saved immediately after options change.
      ! 8. Fixed directory sizes cache cleaning.
      ! 9. Fixed all input lines to allow full ascii range (32..255).
-	 -10. rx_ftp now uses Net::FTP instead of external ftparc utility.
+     !10. rx_* tools are completely rewritten!
+     -11. rx_ftp now uses Net::FTP instead of external ftparc utility.
 	 
    3.04:  24.May.2002
 
