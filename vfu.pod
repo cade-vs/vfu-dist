@@ -20,7 +20,6 @@ B<vfu> has following features:
  - Extensive user-defined external support/utils
  - Regular expressions selection and search
  - Multiple file masks
- - One-key commands
  - and much more...
 
 =head1 OPTIONS
