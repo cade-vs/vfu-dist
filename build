@@ -21,14 +21,4 @@ else
 fi
 
 cd ..
-
-echo "Compiling ftparc..."
-cd ftparc
-make
-if [ -e ftparc ]; then
-  echo "ftparc compiled ok."
-else
-  echo "ftparc compilation failed..."
-fi
-
  

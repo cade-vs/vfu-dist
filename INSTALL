@@ -34,7 +34,8 @@
         copied to /usr/man/man1.
  
      -- copy all `rx/rx_*' tools to /usr/local/bin
-     -- copy ftparc/ftparc utility to /usr/local/bin
+     -- install Net::FTP perl module if needed.
+	    (this is used for FTP support)
  
      If you still have problems feel free to contact me anytime.
  

@@ -23,13 +23,4 @@ else
 fi
 
 cd ..
-
-echo "Compiling ftparc..."
-cd ftparc
-make CCDEF="-I${LOCALBASE}/include -D__unix__" LDDEF="-Wl,-R${PREFIX}/lib -L${PREFIX}/lib"
-if [ -e ftparc ]; then
-  echo "ftparc compiled ok."
-else
-  echo "ftparc compilation failed..."
-fi
  

@@ -5,7 +5,7 @@
    <cade@biscom.net> <cade@datamax.bg>
    http://www.biscom.net/~cade/vfu
 
-   $Id: FAQ,v 1.4 2001/11/26 10:12:21 cade Exp $
+   $Id: FAQ,v 1.5 2002/11/07 23:51:09 cade Exp $
 
 
     1. What is `TP' field on the third line?
@@ -180,16 +180,16 @@
  
    16. How can I use the FTP support?
  
-       VFU supports FTP protocol via external utility called `ftparc'.
-       It main function is to handle FTP sites as archive files, i.e.
-       to support (l)ist, (ex)tract, (p)print/pipe functions through
-       FTP protocol. All you need to use FTP support is:
+	   NOTE! as of Nov.2002 VFU doesn't use `ftparc' anymore!
+	   Instead rx_ftp uses Net::FTP perl module.
 
-       a. to compile ftparc utility ( from the ../ftparc directory )
-          and place it somewhere in the PATH ( /usr/local/bin usually )
+       All you need to use FTP support is:
 
-       b. to create needed FTP file archives:
-          example:
+       a. install Net::FTP if you haven't done this already.
+
+       b. create needed FTP file archives:
+          
+		  example:
 
           create plain text file:
 
@@ -207,7 +207,8 @@
        c. Then from inside VFU press `+' or `ENTER' to enter FTP site
           just as it is plain archive file.
 
-          More details could be found in the README file with ftparc.
+          More details could be found in the README file with rx_*.
+		  (rx directory under VFU main distribution directory)
 
  
    17. I cannot enter archive/ftp! What's wrong?
@@ -216,7 +217,7 @@
        archives/ftp. These utilities are named rx_ext, where
        `ext' is archive type extensions. However VFU calls
        `rx_auto' which decides which specific `rx_*' to call.
-       So the solution is: make sure rx_* and ftparc utilities are
+       So the solution is: make sure rx_* utilities are
        in the path. Then test the result of `rx_auto l archive',
        it should return something like:
  

@@ -8,7 +8,7 @@
    http://www.biscom.net/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.13 2002/10/09 22:03:48 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.14 2002/11/07 23:53:50 cade Exp $
 
       + feature add
       - feature changed
@@ -16,7 +16,7 @@
       ! bugfix
       % note
 
-   3.05:  18.Aug.2002
+   3.05:  07.Nov.2002
    
      ! 1. Fixed rxvt emulation BS handling.
           (actually found why is that... to fix this issue
@@ -29,7 +29,8 @@
      ! 7. Settings are saved immediately after options change.
      ! 8. Fixed directory sizes cache cleaning.
      ! 9. Fixed all input lines to allow full ascii range (32..255).
-
+	 -10. rx_ftp now uses Net::FTP instead of external ftparc utility.
+	 
    3.04:  24.May.2002
 
      % 0. This version should be named over `04' as result of

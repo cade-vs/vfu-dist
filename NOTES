@@ -35,7 +35,7 @@
  
   make CCDEF=-D__RS6000__
  
-  in both vslib and vfu directories ( and in ftparc if required )
+  in both vslib and vfu directories
  
   VFU should compile without big problems on any UNIX (hope so:))
  
