@@ -3,12 +3,11 @@
 
    VFU File Manager
    by Vladi Belperchinov-Shabanski "Cade"
-   <cade@biscom.net>
-   <cade@datamax.bg>
-   http://www.biscom.net/~cade/vfu
+   <cade@biscom.net>   <cade@datamax.bg>
+   http://soul.datamax.bg/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.18 2003/04/27 11:53:10 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.19 2003/04/28 17:18:54 cade Exp $
 
       + feature add
       - feature changed
@@ -30,7 +29,15 @@
           expressions.
      ! 7. Now SeeViewer highlights found strings in the current visible page.
      ! 8. Hex mode of SeeViewer was rewritten. Now it supports several 8-byte
-          columns for different width terminals.      
+          columns for different width terminals.
+	 + 9. Clipboard is now functional (key P)
+	 -10. bookmark1 .. bookmark9 options in config file are now replaced with
+	      single one: `bookmark' which can be used multiple times.
+		  (note that for some time old ones will work as well)
+	 +11. Directory bookmarks are no attached to a key (`) and new option
+	      to temporary run-time bookmarking has been added (`A' inside the
+		  bookmarks menu)	  
+	      	  
    
    4.00:  27.Nov.2002
    

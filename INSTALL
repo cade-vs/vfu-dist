@@ -36,10 +36,10 @@
      -- copy all `rx/rx_*' tools to /usr/local/bin
      -- install Net::FTP perl module if needed.
 	    (this is used for FTP support)
+
+   WARNING: make sure to remove all old personal config and cache files!
  
-     If you still have problems feel free to contact me anytime.
- 
-     P! Vladi.
-     Vladi Belperchinov-Shabanski <cade@biscom.net> <cade@datamax.bg>
-     
- 
+   If you still have problems feel free to contact me anytime.
+
+   P! Vladi.
+   Vladi Belperchinov-Shabanski <cade@biscom.net> <cade@datamax.bg>
