@@ -8,7 +8,7 @@
    http://www.biscom.net/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.4 2002/01/01 16:33:59 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.5 2002/01/01 16:36:56 cade Exp $
 
       + feature add
       - feature changed
@@ -55,6 +55,8 @@
           access time.
     
      !14. Fixed directory size cache for symlink-ed dirs. 
+
+     !15. Now VFU accepts trigger `.automount' just like `automount'.
      
    3.03:  31.Dec.2000
    
