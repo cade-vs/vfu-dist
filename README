@@ -1,0 +1,40 @@
+
+
+
+   VF File Manager for Unix/Linux ( VFU )
+   by Vladi Belperchinov-Shabanski "Cade" <cade@biscom.net>
+   http://www.biscom.net/~cade/vfu
+
+   ------------------------------------------------------------------
+   
+   PLEASE SEND A MESSAGE THAT CONTAINS `I'M USING/EVALUATING VFU'
+   TO <cade@biscom.net>. I WANT TO KEEP TRACK OF THE INTEREST IN VFU!
+                                                
+						Thank you in advance!
+   
+   
+   DISCLAIMER AND LICENSE
+
+         VFU is distributed AS IS w/o warranty of any kind.
+         The author does NOT guarantee problem-free work
+         with VFU and He will not be liable for any direct
+         or indirect damages resulted from the use of VFU.
+         ( this is the old disclaimer note... )
+
+         Since version 1.41 VFU is distributed under the GPL
+         ( GNU General Public License ). See the `COPYING' for
+         the full GPL text.
+
+
+   NOTE
+   
+        This file was a vfu documentation file once, now it is split
+        into separated files ( INSTALL, HISTORY, FAQ, TODO, etc... )
+
+
+   AUTHOR
+
+         Vladi Belperchinov-Shabanski "Cade". 
+	 <cade@biscom.net> <cade@datamax.bg>
+
+   ---eof------------------------------------------------------------

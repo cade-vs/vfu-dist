@@ -1,0 +1,44 @@
+
+   1. how to compile vfu
+
+     run `build' script from vfu base directory
+     
+     this should compile everything
+     
+     to compile vfu manually do this:
+     
+     -- go to `vslib' directory
+     -- run `make'
+     -- go to `vfu' directory
+     -- run `make'
+     
+     if something goes wrong, check these:
+
+     -- if your `curses.h' file locations is not `/usr/include/ncurses'
+        you have to change this in the Makefile.
+ 
+     -- if vslib library is not in the `../vslib' directory you also
+        have to change this in the Makefile.
+
+   2. how to install vfu
+ 
+      run `install' script from vfu base directory
+
+   3. how to install vfu manually
+ 
+     -- you have to copy `vfu' in the `/usr/local/bin' or
+        `/usr/bin' directory and set mode to 755 `rwxr-xr-x'
+        the owner is not significant ( root is also possible ).
+
+     -- there is preliminary man page ( vfu.1 ) which could be
+        copied to /usr/man/man1.
+ 
+     -- copy all `rx/rx_*' tools to /usr/local/bin
+     -- copy ftparc/ftparc utility to /usr/local/bin
+ 
+     If you still have problems feel free to contact me anytime.
+ 
+     P! Vladi.
+     Vladi Belperchinov-Shabanski <cade@biscom.net> <cade@datamax.bg>
+     
+ 
