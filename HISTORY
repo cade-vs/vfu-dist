@@ -7,13 +7,20 @@
    http://soul.datamax.bg/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.21 2003/05/06 12:12:26 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.22 2003/07/05 22:37:58 cade Exp $
 
       + feature add
       - feature changed
       x feature removed
       ! bugfix
       % note
+
+   4.03:  15.Jun.2003
+   
+	 ! 1. Various gcc version warnings and problems were solved.
+	 ! 2. Old (pre 4.xx version) directories size cache problem fixed.
+	      ( ASSERT("|") issue )
+   	 - 3. Credits are removed from the console.
 
    4.02:  06.May.2003
 
