@@ -8,13 +8,23 @@
    http://www.biscom.net/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.8 2002/05/24 17:04:07 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.9 2002/08/17 11:57:04 cade Exp $
 
       + feature add
       - feature changed
       x feature removed
       ! bugfix
       % note
+
+   3.05:  18.Aug.2002
+   
+     ! 1. Fixed rxvt emulation BS handling.
+     
+     + 2. Ctrl+A/E in file list are Home/End.
+          
+     + 3. Ctrl+A/E/D in all input lines are Home/End/Del.     
+
+     + 4. Added octal mode change (key TAB, edit entry menu).
 
    3.04:  24.May.2002
 
