@@ -7,7 +7,7 @@
    http://soul.datamax.bg/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.19 2003/04/28 17:18:54 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.20 2003/04/28 17:32:00 cade Exp $
 
       + feature add
       - feature changed
@@ -15,7 +15,7 @@
       ! bugfix
       % note
 
-   4.01:  12.Dec.2002
+   4.01:  28.Apr.2003
    
      % 0. VFU is now recompiled with the new vslib which features strings,
           arrays and tries (hashes) with referenced data (shared).
@@ -25,19 +25,18 @@
      ! 3. Fixed Lynx-style navigation.
      ! 4. New faster directory size cache!
      - 5. Directory tree is 2 lines bigger and has dir sizes back. :)
-     + 6. VFU now uses pcre library so it can support Perl-like regular
-          expressions.
+     + 6. VFU now uses pcre library so it can support Perl-like regular.
+          expressions (i.e. in regexp searches, see viewer, etc.).
      ! 7. Now SeeViewer highlights found strings in the current visible page.
      ! 8. Hex mode of SeeViewer was rewritten. Now it supports several 8-byte
           columns for different width terminals.
-	 + 9. Clipboard is now functional (key P)
+	 + 9. Clipboard is now functional (key P).
 	 -10. bookmark1 .. bookmark9 options in config file are now replaced with
-	      single one: `bookmark' which can be used multiple times.
-		  (note that for some time old ones will work as well)
+	      single one: `bookmark' which can be used multiple times
+		  (note that for some time old ones will work as well).
 	 +11. Directory bookmarks are no attached to a key (`) and new option
 	      to temporary run-time bookmarking has been added (`A' inside the
-		  bookmarks menu)	  
-	      	  
+		  bookmarks menu).
    
    4.00:  27.Nov.2002
    
