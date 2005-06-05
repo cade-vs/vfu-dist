@@ -1,11 +1,11 @@
 
    1. how to compile vfu
 
-     run `build' script from vfu base directory
+     run `make' from vfu base directory
      
      this should compile everything
      
-     to compile vfu manually do this:
+     to compile each part of vfu manually do this:
      
      -- go to `vslib' directory
      -- run `make'
@@ -23,6 +23,13 @@
    2. how to install vfu
  
       run `install' script from vfu base directory
+      
+      install script checks if all required files are available/built and
+      then does this:
+      
+        cp vfu/vfu rx/rx_* /usr/local/bin
+        cp vfu.1 /usr/local/man/man1
+        cp vfu.conf /usr/local/etc
 
    3. how to install vfu manually
  
@@ -35,11 +42,13 @@
  
      -- copy all `rx/rx_*' tools to /usr/local/bin
      -- install Net::FTP perl module if needed.
-	    (this is used for FTP support)
+        (this is used for FTP support)
 
-   WARNING: make sure to remove all old personal config and cache files!
+   WARNING: make sure to remove all old personal cache files!
  
    If you still have problems feel free to contact me anytime.
 
    P! Vladi.
+   --
    Vladi Belperchinov-Shabanski <cade@biscom.net> <cade@datamax.bg>
+   http://cade.datamax.bg/vfu

@@ -5,7 +5,7 @@
    <cade@biscom.net> <cade@datamax.bg>
    http://soul.datamax.bg/~cade/vfu
 
-   $Id: FAQ,v 1.6 2003/04/28 17:18:54 cade Exp $
+   $Id: FAQ,v 1.7 2005/06/05 19:07:16 cade Exp $
 
 
     1. What is `TP' field on the third line?
@@ -358,6 +358,14 @@
        on background. At this point VFU has taken control back and
        temporary file/dir is removed. There is no slick solution to
        this and only workaround is to remove `&' from your command.
+
+   22. How to make VFU to handle Ctrl+Z, Ctrl+C?
+   
+       You have to export UNICON_NO_RAW environment variable:
+       
+       export UNICON_NO_RAW=1
+       vfu
+       ...
  
    99. I don't/do like feature X, can I turn it OFF/ON?
  
