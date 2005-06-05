@@ -20,6 +20,15 @@
      -- if vslib library is not in the `../vslib' directory you also
         have to change this in the Makefile.
 
+     to get file sizes above 4GB shown properly you need to make this way:
+     
+          export CCDEF="-D_FILE_OFFSET_BITS=64"
+          make
+          
+       or
+       
+          make CCDEF="-D_FILE_OFFSET_BITS=64"
+
    2. how to install vfu
  
       run `install' script from vfu base directory

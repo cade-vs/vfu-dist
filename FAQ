@@ -5,7 +5,7 @@
    <cade@biscom.net> <cade@datamax.bg>
    http://soul.datamax.bg/~cade/vfu
 
-   $Id: FAQ,v 1.7 2005/06/05 19:07:16 cade Exp $
+   $Id: FAQ,v 1.8 2005/06/05 22:02:05 cade Exp $
 
 
     1. What is `TP' field on the third line?
@@ -366,6 +366,17 @@
        export UNICON_NO_RAW=1
        vfu
        ...
+
+   23. Is it possible to see file sizes above 4GB properly?
+   
+       Yes, you have to compile this way:
+       
+          export CCDEF="-D_FILE_OFFSET_BITS=64"
+          make
+          
+       or
+       
+          make CCDEF="-D_FILE_OFFSET_BITS=64"
  
    99. I don't/do like feature X, can I turn it OFF/ON?
  

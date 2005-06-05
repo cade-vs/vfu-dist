@@ -7,13 +7,18 @@
    http://soul.datamax.bg/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.24 2005/06/05 19:07:16 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.25 2005/06/05 22:02:05 cade Exp $
 
       + feature add
       - feature changed
       x feature removed
       ! bugfix
       % note
+
+   4.06:  06.Jun.2005
+
+   ! 1. Sizes above 4GB are now correctly shown/calculated.
+        (needs 'make CCDEF=-D_FILE_OFFSET_BITS=64')
 
    4.05:  05.Jun.2005
    
