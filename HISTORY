@@ -7,13 +7,35 @@
    http://soul.datamax.bg/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.25 2005/06/05 22:02:05 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.26 2005/08/28 15:03:08 cade Exp $
 
       + feature add
       - feature changed
       x feature removed
       ! bugfix
       % note
+
+   4.07: 28.Aug.2005
+   
+   + 1. Tools/Rename_Tools/Replace_SymLink_w._Original tool added.
+        You can select symlink (file only) then call this tool. It
+        will remove the symlink and rename original file to the
+        place of the symlink:
+        
+          ls sym: sym -> org
+          rm sym
+          mv org sym
+
+   + 2. Tools/Go_To_Symlink_Target tool added.
+        It can change directory to symlink target's one and go to
+        target name. It is usefull if you want to inspect symlink
+        target.
+        
+   + 3. Tools/Go_Back_To_Last_Target tool added.
+        This can bring you back to the last entry you were before
+        using Tools/Go_To_Symlink_Target tool. This can be used
+        multiple times and will lead to toggling between symlink
+        and its target.
 
    4.06:  06.Jun.2005
 
