@@ -7,7 +7,7 @@
    http://soul.datamax.bg/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.27 2005/10/26 00:17:02 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.28 2005/10/26 18:59:28 cade Exp $
 
       + feature add
       - feature changed
@@ -19,7 +19,7 @@
    
    + 1. %g and %G shell line options added:
    
-        %g  -- same as %g but for each selected filename
+        %g  -- same as %f but for each selected filename
         %G  -- same as %F but for each selected filename
                %g and %G produce list of filenames. each filename
                is surrounded by '
