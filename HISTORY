@@ -7,13 +7,18 @@
    http://soul.datamax.bg/~cade/vfu
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.28 2005/10/26 18:59:28 cade Exp $
+   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.29 2006/08/05 20:15:38 cade Exp $
 
       + feature add
       - feature changed
       x feature removed
       ! bugfix
       % note
+
+   4.09: 05 Aug 2006
+   
+   ! 1. fixed 64-bit offset formats under 32-bit platform (SEE).
+   	thanks to svilen <sdobrev@sistechnology.com> 
 
    4.08: 26 Oct 2005
    
