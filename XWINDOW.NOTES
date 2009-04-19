@@ -1,6 +1,4 @@
 
-$Id: XWINDOW.NOTES,v 1.2 2002/04/26 07:39:37 cade Exp $
-
   This file contains some hints for using VFU under XWindow,
   i.e. in a xterm, rxvt or other compatible(?) terminal.
 

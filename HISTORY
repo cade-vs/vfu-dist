@@ -3,11 +3,12 @@
 
    VFU File Manager
    by Vladi Belperchinov-Shabanski "Cade"
-   <cade@biscom.net>   <cade@datamax.bg>
+   <cade@biscom.net>   <cade@datamax.bg>   <cade@epay.bg>
    http://soul.datamax.bg/~cade/vfu
+   http://cade.datamax.bg/vfu/
 
    ----------------------------------------------------------------------
-   HISTORY (CHANGE.LOG) $Id: HISTORY,v 1.29 2006/08/05 20:15:38 cade Exp $
+   HISTORY (CHANGE.LOG)
 
       + feature add
       - feature changed
@@ -15,33 +16,45 @@
       ! bugfix
       % note
 
-   4.09: 05 Aug 2006
-   
+   4.09: 14 Apr 2009
+
    ! 1. fixed 64-bit offset formats under 32-bit platform (SEE).
-   	thanks to svilen <sdobrev@sistechnology.com> 
+   	thanks to svilen <sdobrev@sistechnology.com>
+
+   ! 2. Initially this release was timestamped 05 Aug 2006, but it is
+        not correct. Actually released now :) 14 Apr 2009
+
+   + 3. Added option for default target directory to be current working dir.
+
+   % 4. Moved to git :) cheers!
+
+   % 5. Cygwin package for vfu is now available! Thanks to Jari Aalto!
+        http://www.cygwin.com/
+        http://cygwin.com/packages/
+        http://cygwin.com/packages/vfu/
 
    4.08: 26 Oct 2005
-   
+
    + 1. %g and %G shell line options added:
-   
+
         %g  -- same as %f but for each selected filename
         %G  -- same as %F but for each selected filename
                %g and %G produce list of filenames. each filename
                is surrounded by '
                if filename contains ' then " is used.
                example: 'file1' "file2's" 'file"3"' ...
-   
+
    + 2. %! shell line option added:
-   
+
         %!  -- request shell line to be shown before execution (debug mode)
 
    4.07: 28.Aug.2005
-   
+
    + 1. Tools/Rename_Tools/Replace_SymLink_w._Original tool added.
         You can select symlink (file only) then call this tool. It
         will remove the symlink and rename original file to the
         place of the symlink:
-        
+
           ls sym: sym -> org
           rm sym
           mv org sym
@@ -50,7 +63,7 @@
         It can change directory to symlink target's one and go to
         target name. It is usefull if you want to inspect symlink
         target.
-        
+
    + 3. Tools/Go_Back_To_Last_Target tool added.
         This can bring you back to the last entry you were before
         using Tools/Go_To_Symlink_Target tool. This can be used
@@ -63,19 +76,19 @@
         (needs 'make CCDEF=-D_FILE_OFFSET_BITS=64')
 
    4.05:  05.Jun.2005
-   
+
    ! 1. update of dir size cache is optimized for multiple dirs.
    + 2. GlobalSelect/Extended/SelectToBegin/End of list added.
    ! 3. Sizes above 2GB are now correctly shown/calculated.
    ! 4. Docs updated to offer way to handle ctrl+z, ctrl+c.
-   
+
    4.04:  07.Jun.2003
-   
+
 	 + 1. "View differences" menu option added for overwrite file (copy).
 	      This can be used to preview files before overwriting.
 
    4.03:  15.Jun.2003
-   
+
 	 ! 1. Various gcc version warnings and problems were solved.
 	 ! 2. Old (pre 4.xx version) directories size cache problem fixed.
 	      ( ASSERT("|") issue )
@@ -86,10 +99,10 @@
      ! 1. Compilation problem fixed.
 
    4.01:  28.Apr.2003
- 
+
      % 0. VFU is now recompiled with the new vslib which features strings,
           arrays and tries (hashes) with referenced data (shared).
- 
+
      ! 1. Various small fixes (logic and less memory alloc/dealloc).
      ! 2. SeeViewer is now fixed for screens larger than 80 columns.
      ! 3. Fixed Lynx-style navigation.
@@ -107,15 +120,15 @@
 	 +11. Directory bookmarks are no attached to a key (`) and new option
 	      to temporary run-time bookmarking has been added (`A' inside the
 		  bookmarks menu).
- 
+
    4.00:  27.Nov.2002
- 
+
      % 0. Hope this is the new next stage in the VFU development :)
- 
+
      ! 1. Fixed rxvt emulation BS handling.
           (actually found why is that... to fix this issue
            add `Rxvt*backspacekey: ^H' line to your .Xdefaults)
- 
+
      + 2. Ctrl+A/E in file list are Home/End.
      + 3. Ctrl+A/E/D in all input lines are Home/End/Del.
      + 4. Added octal mode change (key TAB, edit entry menu).
@@ -126,7 +139,7 @@
      ! 9. Fixed all input lines to allow full ascii range (32..255).
      !10. rx_* tools are completely rewritten!
      -11. rx_ftp now uses Net::FTP instead of external ftparc utility.
- 
+
    3.04:  24.May.2002
 
      % 0. This version should be named over `04' as result of
@@ -149,7 +162,7 @@
           directory tree.
 
      + 5. Actual files size is now reported before copy/move.
- 
+
      + 6. Size chache is now auto-cleaned on dir size recalculation.
 
      + 7. Now errors on copy/move/symlink/erase can be ignored (always
@@ -170,7 +183,7 @@
 
      +13. Now file list can be sorted separately by modify, change and
           access time.
- 
+
      !14. Fixed directory size cache for symlink-ed dirs.
 
      !15. Now VFU accepts trigger `.automount' just like `automount'.
@@ -181,15 +194,15 @@
      !17. Internal: changed all PSZCluster+StrSplitter to VArray+VTrie
 
      !18. Fixed configuration file problems (missing archives etc.)
- 
+
      !19. SIGWINCH finally works, i.e. VFU redraws on terminal resize
           (please report any problems regarding this one!)
- 
+
    3.03:  31.Dec.2000
- 
+
      ! 1. Documentation fixed to address directory bookmarks in the
           vfu.conf correctly. ( bookmark#=path )
- 
+
      ! 2. Added option for VFU to handle Ctrl+Z, Ctrl+C, Ctrl+\ as
           it is expected (suspend,interrupt,quit).
       To use it you have to export UNICON_NO_RAW environment var
@@ -204,29 +217,29 @@
      + 6. Now directory sizes cache is removed from the directory
           tree, so you can have directory sizes saved even if you
           don't have directory tree built.
- 
+
    3.02:  01.Aug.2000
- 
+
      ! 1. Several DJGPP (DOS/Win9x) portability fixups.
      ! 2. Fixed problem with input line for long directory names.
      ! 3. Fixed directory tree sizes calculation.
      + 4. Added inode size cache for directories that are new to
           the currently saved directory tree. (unix version only)
- 
+
      ! 5. Fixed major bug in file move procedure.
      ! 6. Fixed extension masking `for all' in user externals.
      - 7. Now all path lists in vfu.conf (like TrimTree) are
           `:' separated (or `;' for dos version)
 
    3.01:  07.Jun.2000
- 
+
      ! 1. Fixed SeeEditor bug when editing new files (that
           does not exist)
- 
+
      ! 2. Fixed install script to se correct permissions.
      ! 3. Fixed build.netbsd to se correct global configuration
           files locations.
- 
+
      + 4. GlobalSelect/HideDotFiles added.
      ! 5. Fixed build.netbsd.
      - 6. Now directory tree automation (rescanning etc.) is
@@ -241,9 +254,9 @@
 
      !10. Ctrl+L refresh/redraw page problem is now fixed.
      !11. Several little fixups.
- 
+
    3.00:  20.May.2000
- 
+
      % 0. Hello again! :)
           The VFU development was suspended nearly an year
           ago. Now it is resumed and a lot of changes took place!
@@ -254,17 +267,17 @@
           else...
 
      % 1. There are no big changes in the user interface and feel.
- 
+
      - 2. Now reading/extracting archives is removed from inside
           VFU to external (perl) utilities. This will help adding
           new archives and debugging existing ones.
- 
+
      - 3. Now archives' structure is followed as the local file
           system, i.e. you will browse directory by directory
           but not the whole archive content as before. Perhaps
           option for recursive (whole content) browsing will be
           added in the future.
- 
+
      + 4. Now you can cancel copy/move procedures at stage you
           want even during single file copy process!
           (It was not possible in older versions)
@@ -286,41 +299,41 @@
      ! 3. Now arcive files are recognized by longer extensions
           like `.tar.gz'. Result is proper handling of `.tar.gz'
           and `.tar.bz2' archives.
- 
+
      + 4. Added SEE Viewer filters. Now you can view gzipped files
           and or add filters for viewing man pages etc.
 
      + 5. Added ready `panelizers' command to the RescanMenu
           ( key Ctrl+R ) Can be used as menu alternative to
           external panelize option.
- 
+
      ! 6. SEE screen draws improved and `< >' bug is fixed.
      ! 7. GetDirName function now allows dirs only.
      + 8. Added UserMenu ( key `U' ). User external commands
           can be attached not to key but to this menu.
- 
+
      + 9. Bash/Unix-style filename completion added!
      -10. Bash/Unix-style completion is now default one!
      +11. Now entries in the filelist can be moved ( see
           ArrangeMenu/MoveEntry )
- 
+
      !12. Now VFU keeps current file postition after change
           of sort order.
- 
+
      !13. Better preserve/copy mode/protection when copy/move
           directory subtrees. ( from RO media for example )
- 
+
      !14. Fixed erase of own directories without `write'
           permission/mode.
- 
+
      !15. More examples and comments added to the sampe
           configuration file: vfu.conf.
- 
+
    1.50: 27.Mar.1999
- 
+
      % 0. This is primarily bugfix release, supposed to form
           final stable release with all planned features. :)
- 
+
      ! 1. CR_LF problem in Seed is now solved.
      ! 2. Total/Free space calculation problem is fixed.
      ! 3. GlobalSelect/Grep file search problem (finally!) fixed.
@@ -337,40 +350,40 @@
      -11. VFU will not resort files after Ctrl+Z on directory and
           sort order is `size'.
      +12. Preliminary man page added. ( vfu.1 )
- 
+
    1.46: 19.Mar.1999
- 
+
      + 1. Support for /etc/DIR_COLORS (for file-type colorization)
           See Option/UseEtcDirColors.
- 
+
      + 2. Small internal Text editor added! (can be used as
           emergency editor if no other available)
           See Option/UseInternalEditor.
- 
+
      + 3. Added Lynx-like arrow keys navigation:
           UpArrow/DownArrow    -- scroll list
           LeftArrow/RightArrow -- enter/exit/cdup
           See Options/AltArrowsNavigate.
- 
+
      + 4. Separate histories to all input lines. Use
           PageUp/PageDown to recall.
 
      + 5. Now SymLink references can be edited in-place.
           See EditEntry(key TAB)/EditSymLinkReference(key L).
- 
+
      + 6. File Find results can be panelized now.
- 
+
      ! 7. The usual bugfixes ( not important really ).
- 
+
      - 8. Changed location for personal config and other related files,
           now default place is `$HOME/.vfu'. Changed VFU config file
           name from `vfurc' to `vfu.conf'.
           Please read CONFIG file!
- 
+
      + 9. Now the internal Viewer and Editor (See/Seed) have separate
           options files. The `see(d).options' location is
           `$HOME/$RC_PREFIX/.see(d)/see(d).options'.
- 
+
    1.45: 03.Mar.1999
 
       + 1. `%i' and `%n' macros added. (See abov for details)
