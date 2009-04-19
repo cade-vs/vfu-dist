@@ -1,0 +1,196 @@
+<HTML>
+<HEAD>
+<TITLE>vfu - VFU is console file manager for UNIX/Linux</TITLE>
+<LINK REV="made" HREF="mailto:root@grommet.slackware.lan">
+</HEAD>
+
+<BODY>
+
+<A NAME="__index__"></A>
+<!-- INDEX BEGIN -->
+
+<UL>
+
+	<LI><A HREF="#name">NAME</A></LI>
+	<LI><A HREF="#synopsis">SYNOPSIS</A></LI>
+	<LI><A HREF="#description">DESCRIPTION</A></LI>
+	<LI><A HREF="#options">OPTIONS</A></LI>
+	<LI><A HREF="#configuration">CONFIGURATION</A></LI>
+	<UL>
+
+		<LI><A HREF="#location of vfu.conf">Location of vfu.conf</A></LI>
+		<LI><A HREF="#other files location">Other files location</A></LI>
+	</UL>
+
+	<LI><A HREF="#vfu.conf">VFU.CONF</A></LI>
+	<LI><A HREF="#distribution">DISTRIBUTION</A></LI>
+	<LI><A HREF="#files">FILES</A></LI>
+	<LI><A HREF="#todo">TODO</A></LI>
+	<LI><A HREF="#bugs">BUGS</A></LI>
+	<LI><A HREF="#author">AUTHOR</A></LI>
+</UL>
+<!-- INDEX END -->
+
+<HR>
+<P>
+<H1><A NAME="name">NAME</A></H1>
+<P>vfu - VFU is console (text-mode) file manager for UNIX/Linux</P>
+<P>
+<HR>
+<H1><A NAME="synopsis">SYNOPSIS</A></H1>
+<P>vfu [options]</P>
+<P>
+<HR>
+<H1><A NAME="description">DESCRIPTION</A></H1>
+<P><STRONG>vfu</STRONG> has following features:</P>
+<PRE>
+ - Fast one-key commands
+ - Extended completition and wildcard expansion
+ - Directory tree with sizes (incl. sizes cache)
+ - File-type colorization (extension and type)
+ - Archives support (TAR, TGZ, BZ2, and many more)
+ - Simple FTP support through archive-like interface
+ - Internal text/hex file viewer and editor (optional)
+ - Extensive user-defined external support/utils
+ - Regular expressions selection and search
+ - Multiple file masks
+ - and much more...</PRE>
+<P>
+<HR>
+<H1><A NAME="options">OPTIONS</A></H1>
+<PRE>
+ -h
+prints help for command line options</PRE>
+<PRE>
+ -i
+runs vfu in interactive mode (can be used with \-d)</PRE>
+<PRE>
+ -d path
+changes working directory to `path'</PRE>
+<PRE>
+ -r
+rebuild directory tree</PRE>
+<PRE>
+ -t
+view directory tree only</PRE>
+<P>These options are for using vfu in partial non-interactive mode.</P>
+<PRE>
+ example: vfu -d /usr/local -i</PRE>
+<P>
+<HR>
+<H1><A NAME="configuration">CONFIGURATION</A></H1>
+<P><STRONG>vfu</STRONG>
+configuration is divided in two parts (files):</P>
+<P><STRONG>vfu.conf</STRONG></P>
+<P>This file contains configuration for external editor and pager, favorite
+directories, file-type colorization. This is plain text file which format
+is described below. vfu only reads vfu.conf, it never writes in it!</P>
+<P><STRONG>vfu.options</STRONG></P>
+<P>This file contains all Options/Toggles which can be changed from inside
+vfu -- Options menu. vfu.options is binary file and is overwritten on
+vfu exit or on change option event! Deleting this file will reset vfu
+toggles to default values. vfu.options is not portable between vfu
+versions!</P>
+<P>
+<H2><A NAME="location of vfu.conf">Location of vfu.conf</A></H2>
+<P><STRONG>vfu.conf</STRONG> can be placed as any of:</P>
+<PRE>
+ $HOME/.vfu/vfu.conf
+</PRE>
+<PRE>
+
+ $HOME/$RC_PREFIX/vfu/vfu.conf  (if $RC_PREFIX is exported)</PRE>
+<PRE>
+
+ /etc/vfu.conf</PRE>
+<PRE>
+
+ /usr/local/etc/vfu.conf</PRE>
+<PRE>
+
+ /usr/local/vfu.conf</PRE>
+<P>
+<H2><A NAME="other files location">Other files location</A></H2>
+<P>All other files including vfu.options are placed in:</P>
+<PRE>
+ $HOME/.vfu/
+</PRE>
+<PRE>
+
+ $HOME/$RC_PREFIX/vfu/</PRE>
+<P>What is <STRONG><CODE>$RC_PREFIX</CODE></STRONG> and why to use it? Some more information for
+this can be found in the <STRONG>CONFIG</STRONG> file which is supplied with
+<STRONG>vfu</STRONG> package.</P>
+<P>
+<HR>
+<H1><A NAME="vfu.conf">VFU.CONF</A></H1>
+<P>This is a sample copy of vfu.conf with appropriate comments:</P>
+<P>
+<HR>
+<H1><A NAME="distribution">DISTRIBUTION</A></H1>
+<P>It is supposed that only source packages will be distributed.
+However sometimes binary packages will be released, but not often.
+VFU packages are named in this way:</P>
+<PRE>
+ vfu-X.xx.src.tgz
+</PRE>
+<PRE>
+
+source package for version X.xx</PRE>
+<PRE>
+ vfu-X.xx.bin.platform.tgz</PRE>
+<P>binary package for version X.xx for `platform' platform</P>
+<P>examples:</P>
+<PRE>
+ vfu-4.00.src.tgz</PRE>
+<PRE>
+ vfu-4.00.bin.linux.glibc.tgz</PRE>
+<PRE>
+ vfu-4.00.bin.linux.libc5.tgz</PRE>
+<PRE>
+ vfu-4.00.bin.dos.tgz</PRE>
+<P>All packages are TAR+GZIP .tgz, bz2 and zip are available on request.</P>
+<P><STRONG>NOTE</STRONG>:
+Always check HISTORY document -- it often
+contains some usefull notes!</P>
+<P>
+<HR>
+<H1><A NAME="files">FILES</A></H1>
+<PRE>
+ $HOME/$RC_PREFIX/vfu/vfu.conf</PRE>
+<P>configuration, explained above</P>
+<PRE>
+ $HOME/$RC_PREFIX/vfu/vfu.options</PRE>
+<P>options, explained above</P>
+<PRE>
+ $HOME/$RC_PREFIX/vfu/vfu.history</PRE>
+<P>contains history lines</P>
+<PRE>
+ $HOME/$RC_PREFIX/vfu/vfu.tree</PRE>
+<P>contains directory tree</P>
+<P>If you don't set $RC_PREFIX configuration files are:</P>
+<PRE>
+ $HOME/.vfu/vfu.conf
+ $HOME/.vfu/vfu.options
+ $HOME/.vfu/vfu.history
+ $HOME/.vfu/vfu.tree</PRE>
+<P>
+<HR>
+<H1><A NAME="todo">TODO</A></H1>
+<P>see the TODO file</P>
+<P>
+<HR>
+<H1><A NAME="bugs">BUGS</A></H1>
+<P>unknown</P>
+<P>
+<HR>
+<H1><A NAME="author">AUTHOR</A></H1>
+<PRE>
+ Vladi Belperchinov-Shabanski &quot;Cade&quot;
+ &lt;cade@biscom.net&gt; &lt;cade@datamax.bg&gt;
+ <A HREF="http://soul.datamax.bg/~cade/">http://soul.datamax.bg/~cade/</A>
+ <A HREF="http://soul.datamax.bg/~cade/vfu">http://soul.datamax.bg/~cade/vfu</A></PRE>
+
+</BODY>
+
+</HTML>
