@@ -33,6 +33,8 @@
         http://cygwin.com/packages/
         http://cygwin.com/packages/vfu/
 
+   % 6. Applied patches several from Debian.
+
    4.08: 26 Oct 2005
 
    + 1. %g and %G shell line options added:
