@@ -2,59 +2,99 @@
    1. how to compile vfu
 
      run `make' from vfu base directory
-     
+
      this should compile everything
-     
+
      to compile each part of vfu manually do this:
-     
+
      -- go to `vslib' directory
      -- run `make'
      -- go to `vfu' directory
      -- run `make'
-     
+
      if something goes wrong, check these:
 
      -- if your `curses.h' file locations is not `/usr/include/ncurses'
         you have to change this in the Makefile.
- 
+
      -- if vslib library is not in the `../vslib' directory you also
         have to change this in the Makefile.
 
      to get file sizes above 4GB shown properly you need to make this way:
-     
+
           export CCDEF="-D_FILE_OFFSET_BITS=64"
           make
-          
+
        or
-       
+
           make CCDEF="-D_FILE_OFFSET_BITS=64"
 
    2. how to install vfu
- 
+
       run `install' script from vfu base directory
-      
+
       install script checks if all required files are available/built and
       then does this:
-      
+
         cp vfu/vfu rx/rx_* /usr/local/bin
         cp vfu.1 /usr/local/man/man1
         cp vfu.conf /usr/local/etc
 
    3. how to install vfu manually
- 
+
      -- you have to copy `vfu' in the `/usr/local/bin' or
         `/usr/bin' directory and set mode to 755 `rwxr-xr-x'
         the owner is not significant ( root is also possible ).
 
      -- there is preliminary man page ( vfu.1 ) which could be
         copied to /usr/man/man1.
- 
+
      -- copy all `rx/rx_*' tools to /usr/local/bin
      -- install Net::FTP perl module if needed.
         (this is used for FTP support)
 
+   4. requirements: VFU uses pcre perl-like regexp library.
+
+      If you get error messages like these:
+
+      > ~/src/vfu-4.09$ make
+      > make -C vslib
+      > make[1]: Entering directory `/home/cade/src/vfu-4.09/vslib'
+      > true
+      > g++  -I. -O2   -c vstrlib.cpp          -o .OBJ.libvslib.a/vstrlib.o
+      > In file included from vstrlib.cpp:17:
+      > vstrlib.h:28:18: error: pcre.h: No such file or directory
+      > In file included from vstrlib.cpp:17:
+      > vstrlib.h:178: error: ISO C++ forbids declaration of ‘pcre’ with no type
+      > vstrlib.h:178: error: expected ‘;’ before ‘*’ token
+      > vstrlib.h:179: error: ISO C++ forbids declaration of ‘pcre_extra’ with
+
+
+      then you need pcre library. you should have package named something like:
+
+        libpcre-dev
+
+      in debian, for example, the correct package name is:
+
+        libpcre3-dev
+
+        apt-get install libpcre3-dev
+
+      if you dont have this package or do not want to install it, you can
+      try VFU internal pcre library (i.e. pcre shanshot, used with permission):
+
+        tar xzvf vfu-4.09.tar.gz
+        cd vfu-4.09
+        make -C vslib/pcre
+        export CCDEF="-Ipcre -I../vslib/pcre"
+        export LDDEF="-Lpcre -l../vslib/pcre pcre"
+        make
+
+      this should help.
+
+
    WARNING: make sure to remove all old personal cache files!
- 
+
    If you still have problems feel free to contact me anytime.
 
    P! Vladi.
