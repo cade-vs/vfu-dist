@@ -16,6 +16,16 @@
       ! bugfix
       % note
 
+   pre-4.10: 29.Jul.2009
+
+   - 1. removed 'bookmark1' to 'bookmark9' config file options.
+        now only (repeated) 'bookmark' can be used.
+
+   ! 2. fixed ALT+1 to ALT+9 bookmarks hotkeys.
+
+   ! 3. fixed several problems with rx_* tools and some archives filenames.
+
+
    4.09: 14 Apr 2009
 
    ! 1. fixed 64-bit offset formats under 32-bit platform (SEE).
