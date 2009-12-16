@@ -16,6 +16,11 @@
       ! bugfix
       % note
 
+   4.10: 16.Dec.2009
+
+   ! 1. Source cleanup for recent gcc/g++/glibc. For Debian Sid.
+        (Greetings Billy! :))
+
    pre-4.10: 29.Jul.2009
 
    - 1. removed 'bookmark1' to 'bookmark9' config file options.
