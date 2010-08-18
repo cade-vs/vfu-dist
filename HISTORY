@@ -16,6 +16,11 @@
       ! bugfix
       % note
 
+   4.11: 19.Aug.2010 pre-release
+
+   + 1. Directory history is larger on larger terminals.
+        (limit raised from 14 to 128 entries)
+
    4.10: 16.Dec.2009
 
    ! 1. Source cleanup for recent gcc/g++/glibc. For Debian Sid.
