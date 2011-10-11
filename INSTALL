@@ -81,13 +81,14 @@
         apt-get install libpcre3-dev
 
       if you dont have this package or do not want to install it, you can
-      try VFU internal pcre library (i.e. pcre shanshot, used with permission):
+      try VFU (VSLIB) internal pcre library (i.e. pcre snapshot, used with
+      permission, see vslib/README file):
 
         tar xzvf vfu-4.09.tar.gz
         cd vfu-4.09
         make -C vslib/pcre
-        export CCDEF="-Ipcre -I../vslib/pcre"
-        export LDDEF="-Lpcre -l../vslib/pcre pcre"
+        export CCDEF="-I../vslib/pcre"
+        export LDDEF="-L../vslib/pcre"
         make
 
       this should help.
@@ -99,5 +100,8 @@
 
    P! Vladi.
    --
-   Vladi Belperchinov-Shabanski <cade@biscom.net> <cade@datamax.bg>
+   Vladi Belperchinov-Shabanski
    http://cade.datamax.bg/vfu
+   <cade@biscom.net>
+   <cade@datamax.bg>
+   <cade@bis.bg>
