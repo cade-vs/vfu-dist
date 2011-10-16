@@ -21,6 +21,10 @@
    + 1. Directory history is larger on larger terminals.
         (limit raised from 14 to 128 entries)
 
+   ! 2. Fixed bug causing wrong recognition of files time inside ZIP arcives.
+
+   % 3. Included PCRE upgraded.
+
    4.10: 16.Dec.2009
 
    ! 1. Source cleanup for recent gcc/g++/glibc. For Debian Sid.
