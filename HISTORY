@@ -16,6 +16,14 @@
       ! bugfix
       % note
 
+   4.12: 21.Dec.2011
+
+   ! 1. Fixed problem with strcpy/memmove inside vstring lib.
+        (thanks to Boyan Anastasov)
+
+   % 2. VString support library was revised to avoid possible buffer overlaps
+        on different platforms and libc implementations.
+
    4.11: 19.Aug.2010 pre-release
 
    + 1. Directory history is larger on larger terminals.
@@ -768,7 +776,7 @@
 
    0.07BETA: 28.Mar.1997
 
-      % 0. elf version.
+      % 0. elf version! :)
       - 1. now tab-completion procedure adds '/' at the end.
       + 2. octal mode chmod (TAB+A+\).
       + 3. now vfu remembers last copy/move paths.
