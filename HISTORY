@@ -24,6 +24,10 @@
    % 2. VString support library was revised to avoid possible buffer overlaps
         on different platforms and libc implementations.
 
+   + 3. Added BACKSPACE as alternative dismissal key for all menu boxes along
+        with ESCAPE key.
+        (requested for use on Nokia N900 hardware keyboard)
+
    4.11: 19.Aug.2010 pre-release
 
    + 1. Directory history is larger on larger terminals.
