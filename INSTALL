@@ -80,6 +80,10 @@
 
         apt-get install libpcre3-dev
 
+      vfu also needs curses:
+
+        apt-get install libncurses5-dev
+
       if you dont have this package or do not want to install it, you can
       try VFU (VSLIB) internal pcre library (i.e. pcre snapshot, used with
       permission, see vslib/README file):
