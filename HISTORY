@@ -31,6 +31,9 @@
    - 4. Removed restriction for the color of directories. Now can be selected
         in the config file as the rest of the file/directory types.
 
+   + 5. Added "Case insensitive file/dir names matching" option. Will discard
+        case on directory completion and filenames incremental search 's' key.
+
    4.11: 19.Aug.2010 pre-release
 
    + 1. Directory history is larger on larger terminals.
