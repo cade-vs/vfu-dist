@@ -377,6 +377,25 @@
 
           make CCDEF="-D_FILE_OFFSET_BITS=64"
 
+   24. When I change directory (key "D"), VFU prints this line:
+       "use keys: TAB, PageUp, PageDown, Ctrl+X, Ctrl+A".
+       What are those keys used for?
+
+       -- TAB completes currently typed directory path
+          (only rightmost level)
+
+       -- PageUp brings history of all previously entered directories
+          (including for copy/move/chdir)
+
+       -- PageDown brings history of all previously visited directories
+          (chdir history)
+
+       -- Ctrl+X expands currently typed directory path to the true path
+          (removes symlinks)
+
+       -- Ctrl+A removes rightmost directory level from the typed path
+
+
    99. I don't/do like feature X, can I turn it OFF/ON?
 
        I tried to give option for every arguable behavior of

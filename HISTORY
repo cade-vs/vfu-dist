@@ -16,6 +16,13 @@
       ! bugfix
       % note
 
+   4.13: ##.Jun.2012 ( GIT SNAPSHOT, IN PROGRESS )
+
+   + 1. Added Alt+S to find next matching incremental search entry.
+
+   + 2. Added missing incremental search commands in the HELP :)
+        (keys "S" and "Alt+S")
+
    4.12: 21.Dec.2011
 
    ! 1. Fixed problem with strcpy/memmove inside vstring lib.
@@ -61,7 +68,7 @@
    4.09: 14 Apr 2009
 
    ! 1. fixed 64-bit offset formats under 32-bit platform (SEE).
-   	thanks to svilen <sdobrev@sistechnology.com>
+    thanks to svilen <sdobrev@sistechnology.com>
 
    ! 2. Initially this release was timestamped 05 Aug 2006, but it is
         not correct. Actually released now :) 14 Apr 2009
@@ -128,15 +135,15 @@
 
    4.04:  07.Jun.2003
 
-	 + 1. "View differences" menu option added for overwrite file (copy).
-	      This can be used to preview files before overwriting.
+   + 1. "View differences" menu option added for overwrite file (copy).
+        This can be used to preview files before overwriting.
 
    4.03:  15.Jun.2003
 
-	 ! 1. Various gcc version warnings and problems were solved.
-	 ! 2. Old (pre 4.xx version) directories size cache problem fixed.
-	      ( ASSERT("|") issue )
-   	 - 3. Credits are removed from the console.
+   ! 1. Various gcc version warnings and problems were solved.
+   ! 2. Old (pre 4.xx version) directories size cache problem fixed.
+        ( ASSERT("|") issue )
+     - 3. Credits are removed from the console.
 
    4.02:  06.May.2003
 
@@ -157,13 +164,13 @@
      ! 7. Now SeeViewer highlights found strings in the current visible page.
      ! 8. Hex mode of SeeViewer was rewritten. Now it supports several 8-byte
           columns for different width terminals.
-	 + 9. Clipboard is now functional (key P).
-	 -10. bookmark1 .. bookmark9 options in config file are now replaced with
-	      single one: `bookmark' which can be used multiple times
-		  (note that for some time old ones will work as well).
-	 +11. Directory bookmarks are no attached to a key (`) and new option
-	      to temporary run-time bookmarking has been added (`A' inside the
-		  bookmarks menu).
+   + 9. Clipboard is now functional (key P).
+   -10. bookmark1 .. bookmark9 options in config file are now replaced with
+        single one: `bookmark' which can be used multiple times
+      (note that for some time old ones will work as well).
+   +11. Directory bookmarks are no attached to a key (`) and new option
+        to temporary run-time bookmarking has been added (`A' inside the
+      bookmarks menu).
 
    4.00:  27.Nov.2002
 
