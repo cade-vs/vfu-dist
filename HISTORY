@@ -18,10 +18,11 @@
 
    4.13: ##.Jun.2012 ( GIT SNAPSHOT, IN PROGRESS )
 
-   + 1. Added Alt+S to find next matching incremental search entry.
+   + 1. Added Alt+S to find next entry matching last incremental
+        search (key "S").
 
    + 2. Added missing incremental search commands in the HELP :)
-        (keys "S" and "Alt+S")
+        (keys "S" and "Alt+S").
 
    4.12: 21.Dec.2011
 
