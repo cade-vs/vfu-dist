@@ -2,24 +2,24 @@
 ### MAKEMAKE STARTS HERE #######################################################
 
 
-### Created by makemake.pl on Sun Dec 15 20:23:25 2002 #########################
+### Created by makemake.pl on Fri Oct 11 01:45:14 2013 #########################
 
 
 ### GLOBAL TARGETS #############################################################
 
-default: all
+default: mm_update all
 
-re: rebuild
+re: mm_update rebuild
 
-li: link
+li: mm_update link
 
-all: modules 
+all: mm_update modules 
 
-clean: clean-modules 
+clean: mm_update clean-modules 
 
-rebuild: rebuild-modules 
+rebuild: mm_update rebuild-modules 
 
-link: link-modules 
+link: mm_update link-modules 
 
 ### GLOBAL (AND USER) DEFS #####################################################
 
@@ -38,20 +38,24 @@ SRC = *.c *.cpp *.cc *.cxx
 ### MODULES ####################################################################
 
 modules:
-	make -C vslib 
-	make -C vfu 
+	$(MAKE) -C vslib 
+	$(MAKE) -C vfu 
 
 clean-modules:
-	make -C vslib clean
-	make -C vfu clean
+	$(MAKE) -C vslib clean
+	$(MAKE) -C vfu clean
 
 rebuild-modules:
-	make -C vslib rebuild
-	make -C vfu rebuild
+	$(MAKE) -C vslib rebuild
+	$(MAKE) -C vfu rebuild
 
 link-modules:
-	make -C vslib link
-	make -C vfu link
+	$(MAKE) -C vslib link
+	$(MAKE) -C vfu link
+
+
+mm_update:
+	
 
 
 ### MAKEMAKE ENDS HERE #########################################################
