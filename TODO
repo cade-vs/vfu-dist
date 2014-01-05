@@ -16,7 +16,3 @@ MOST IMPORTANT (LONG TERM?) TODO NOTES:
 -- check if source exist when move/copy/symlink (warning really)
 
 -- save/load selection with key
-
--- problem with copying files above 2GB under debian?
-
-

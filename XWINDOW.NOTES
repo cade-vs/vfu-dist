@@ -1,4 +1,5 @@
 
+
   This file contains some hints for using VFU under XWindow,
   i.e. in a xterm, rxvt or other compatible(?) terminal.
 
@@ -48,6 +49,5 @@
   keycode  91 = Delete
   ---cut---
 
-  That's all for now...
   If you have problems contact me at <cade@biscom.net>
 

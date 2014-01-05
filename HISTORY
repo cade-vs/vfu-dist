@@ -16,13 +16,32 @@
       ! bugfix
       % note
 
-   4.13: ##.Jun.2012 ( GIT SNAPSHOT, IN PROGRESS )
+   4.14: 04.Jan.2014
+
+   % 0. Version 4.13 was skipped to match the year :)
 
    + 1. Added Alt+S to find next entry matching last incremental
         search (key "S").
 
    + 2. Added missing incremental search commands in the HELP :)
         (keys "S" and "Alt+S").
+
+   + 3. VFU (and VF before it) was designed to keep directories on top of 
+        the file list. There is flag for disabling this inside the code, 
+        but it was never visible. Now this long lost option is exported
+        to the options menu. :)
+
+   + 4. Added "Smart" Home/End keys navigation. When this option is enabled
+        HOME and END keys will toggle between top and bottom fo the files list
+        and firs/last directory or file. 
+        Example:
+                 * first HOME will go to the beginning of the file list
+                 * next HOME will go to the first file (not dir) in the list
+                 * first END will go to the bottom of the list
+                 * next END will go to the last directory in the list
+        Actually "next HOME" will be assumed when current position is already
+        top of the list and also "next END" will be triggered when position
+        is at the bottom entry in the list.
 
    4.12: 21.Dec.2011
 

@@ -3,7 +3,7 @@
    VF File Manager for Unix/Linux ( VFU )
    by Vladi Belperchinov-Shabanski "Cade"
    <cade@biscom.net> <cade@datamax.bg>
-   http://soul.datamax.bg/~cade/vfu
+   http://cade.datamax.bg/vfu
 
 
 
@@ -77,8 +77,8 @@
        reported no error, but I cannot see it.
 
        Well, you just have to hit 'r' to reload directory content.
-       I know this may be confusing at first, but you'll get used to
-       it quite fast. :)
+       I know this may be confusing at first, but currently it just works 
+       this way by design.
 
 
     9. How can I exit to new directory from vfu (UNIX)
@@ -108,7 +108,7 @@
        And VFU will use it instead of default one.
 
        NOTE: DOS version should work without this -- the `q'uit function
-             will work standalone.
+             will work out of the box.
 
 
    10. What is `Name###' sort order? And why should I RTFM?! :)
@@ -127,14 +127,14 @@
        ends with number, VFU will sort them in regard to the numeric
        values found at the ends of the filenames.
 
-       (real parsing re is "^(.*)([0123456789]+)(\\.(.*))?$" if you
-        know what this means:))
+       (technical note: real parsing re is "^(.*)([0123456789]+)(\\.(.*))?$" 
+        if you know what this means:))
 
        NOTE: This mode drops all after the first dot!
        NOTE: This mode resets on exit!
 
 
-   11. How is done the tilde expansion in VFU?
+   11. How the tilde expansion is done in VFU?
 
        It works only in standard input line for getting directory
        name which is used for: chdir, copy, move... it won't work
@@ -144,12 +144,14 @@
    12. What is the mask expansion and how it works?
 
        If no `*' or `?' found in the mask then:
-         1. add `*' at the end
-         2. if mask starts with `.' then add `*' to the front
+           1. add `*' at the end
+           2. if mask starts with `.' then add `*' to the front
        else
-         1. leave it `as is'
-       Just try it -- if you don't like the expansion -- switch it
-       off: Options(Toggles)/FilesMaskExpand and FileFindMaskExpand.
+           1. leave it `as is'
+           
+       If you don't like the expansion, you can switch it off: 
+       
+         Options(Toggles)/FilesMaskExpand and FileFindMaskExpand options.
 
 
    13. Where mask expansion applies and can I turn it off?
@@ -169,10 +171,10 @@
 
    15. What `Show Real Free Space' option means?
 
-       Most of the operating systems keep users from filling the
-       entire disks. So there is two `free spaces' the one is the
+       Some operating systems keep users from filling the
+       entire filesystems. So there are two `free spaces' the one is the
        `real free space' ( i.e. physical one ) and `user free space'
-       which is the free space available to any user.
+       which is the free space available to the user.
        By default VFU shows the free space available to the user.
        If you want to use the real free space count -- turn this on.
 
@@ -185,10 +187,18 @@
        All you need to use FTP support is:
 
        a. install Net::FTP if you haven't done this already.
+       
+          on any linux you can install it with cpan:
+          
+            $ cpan Net::FTP
+          
+          on Debian Linux it is inside `perl-modules' package:
+          
+            $ apt-get install perl-modules
 
-       b. create needed FTP file archives:
+       b. create needed FTP file "archives":
 
-      example:
+       example:
 
           create plain text file:
 
@@ -200,14 +210,17 @@
           password
           ---cut---
 
-          This file has to contain three lines: host, username and
-          password.
+          This file has to contain three lines: 
+
+              host
+              username
+              password
 
        c. Then from inside VFU press `+' or `ENTER' to enter FTP site
           just as it is plain archive file.
 
           More details could be found in the README file with rx_*.
-      (rx directory under VFU main distribution directory)
+          (rx directory under VFU main distribution directory)
 
 
    17. I cannot enter archive/ftp! What's wrong?
@@ -338,13 +351,13 @@
        ---cut---
 
 
-   19. What does Tools/RenameTools/SiplifyName do?
+   19. What does Tools/RenameTools/SimplifyName do?
 
        First replaces all `special' symbols as `'&\"/ etc with _
        then it compresses all repeating _'s and finally it replaces
        `_-_' with `-'.
 
-       NOTE: I accept any suggestions for this feature behaviour!
+       NOTE: suggestions are welcome.
 
    20. How can I purge directory sizes cache?
 

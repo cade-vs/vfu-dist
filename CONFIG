@@ -24,7 +24,7 @@
   restrictions. I also know that keeping configs in `$HOME/.name'
   files is usual since the beginning, but it doesn't help.
  
-  So a simple solution to this problem is to check for exported
+  Simple solution to this problem is to check for exported
   environment variable called `RC_PREFIX' and if found to check
   for config files in `$HOME/$RC_PREFIX/.name' ( where `.name'
   is the config file or dir ). Is $RC_PREFIX is not defined all
@@ -32,16 +32,16 @@
  
   VFU works in this way and I have got always $RC_PREFIX defined
   to `etc' ( i.e. vfu.conf goes in `$HOME/etc/.vfu/' ).
+
+  NOTE: The text above is probably more than 10 years old :) I don't know
+  for wide-spread idea to keep all dot files separate but lately $HOME/.config
+  started to gather more and more configuration files, so I think that is a
+  safe choice :)
+  
  
-  I don't know if there is similar idea already, but if you like it
-  it would be nice if your own programs support this option. Of 
-  cource if you don't like the name RC_PREFIX you can use other like
-  CONFIG_PREFIX for example.
- 
-                           Thanx for the attention!
                            Vladi Belperchinov-Shabanski
                            <cade@biscom.net> <cade@datamax.bg>
-                           http://soul.datamax.bg/~cade/vfu
+                           http://cade.datamax.bg/vfu
   ------------------------------------------------------------------------
  
  
