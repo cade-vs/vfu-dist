@@ -1,4 +1,8 @@
 
+IMPORTANT IMMEDIATE:
+
+-- allow reedit when copy to new dir failed to create (offers only CANCEL/CONTINUE now)
+
 MOST IMPORTANT (LONG TERM?) TODO NOTES:
 
 -- clean up all the documentation and build/install scripts mess :(
@@ -16,3 +20,4 @@ MOST IMPORTANT (LONG TERM?) TODO NOTES:
 -- check if source exist when move/copy/symlink (warning really)
 
 -- save/load selection with key
+

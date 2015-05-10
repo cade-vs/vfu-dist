@@ -16,6 +16,18 @@
       ! bugfix
       % note
 
+   4.16: 05.May.2015
+   
+   % 1. Verified that VFU (and vstring/vslib) compiles clean with clang :)
+   + 2. Added option to show file/dir sizes either in IEC or SI units.
+        (cheers Larry :))
+        
+   
+   4.15: 17.Jan.2014
+   
+   ! 1. Fixed bug with directory name completion which freezes VFU when case 
+        insesitive completion options is enabled.
+
    4.14: 04.Jan.2014
 
    % 0. Version 4.13 was skipped to match the year :)
