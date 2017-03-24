@@ -1,0 +1,33 @@
+
+Hello,
+
+this is very quick note on how to compile VFU on Mac OS X:
+
+1. install Xcode
+
+2. get vfu-X.XX.tar.gz
+
+3. tar xzvf vfu-X.XX.tar.gz
+
+4. cd vfu-X.XX
+
+5. export export CCDEF="-I../vslib/pcre"
+
+6. export LDDEF="-L../vslib/pcre -lpcre"
+
+7. make -C vslib
+
+8. make -C vfu
+
+now you should have VFU ready inside vfu dir:
+
+  /home/cade/vfu-X.XX/vfu/vfu
+
+if you have questions or problems with VFU build procedure,
+please, contact me at these email addresses:
+
+            cade@bis.bg
+            cade@biscom.net
+            cade@datamax.bg
+
+
