@@ -16,11 +16,13 @@
       ! bugfix
       % note
 
-   4.17: 10.June.2018
+   4.17: 12.June.2018
    
    + 1. Directory size calculations menu (key "Z") has new options:
                 * follow symlinks (WARNING: may cause loops!)
                 * stay on the same device/filesystem
+   + 2. Dynamic files list allocation: i.e. low memory consumption and
+        unlimited files list count (up to the available memory)
 
    4.16: 05.May.2015
    
