@@ -7,8 +7,15 @@
 
      to compile each part of vfu manually do this:
 
+     -- `git clone yascreen https://github.com/bbonev/yascreen.git`
+     -- go to `yascreen` directory
+     -- run 'make'
+     -- cd ..
+     -- `git clone https://github.com/cade-vs/vslib.git`
      -- go to `vslib' directory
      -- run `make'
+     -- cd ..
+     -- `git clone https://github.com/cade-vs/vfu.git`
      -- go to `vfu' directory
      -- run `make'
 
