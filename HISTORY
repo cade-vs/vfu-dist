@@ -16,6 +16,12 @@
       ! bugfix
       % note
 
+   4.18: 31.Dec.2018 
+   
+   + 1. Added estimate finish time reporting for copy/move operations.
+   + 2. Added Autotools configure and compile (thanks to Andy Alt!)
+   ! 3. Report available space instead of free space (root reserved).
+
    4.17: 12.June.2018
    
    + 1. Directory size calculations menu (key "Z") has new options:
