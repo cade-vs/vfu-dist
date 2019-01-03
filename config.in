@@ -15,6 +15,9 @@
 /* Define to 1 if library supports certain obsolete features */
 #undef HAVE_CURSES_OBSOLETE
 
+/* Define to 1 if you have the `pcre' library (-lpcre). */
+#undef HAVE_LIBPCRE
+
 /* Define to 1 if the Ncurses library is present */
 #undef HAVE_NCURSES
 

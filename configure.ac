@@ -1,7 +1,7 @@
 # The values here are used by the configure script and defined as
 # macros in the generated config.h when ./configure is run. Traditionally the
 # third field is the "bug report" address, but using a URL is acceptable
-AC_INIT([vfu], [4.17-dev], [https://github.com/cade-vs/vfu/issues],,[http://cade.datamax.bg/vfu/])
+AC_INIT([vfu], [4.18], [https://github.com/cade-vs/vfu/issues],,[http://cade.datamax.bg/vfu/])
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([subdir-objects foreign no-dependencies])
 AC_PREREQ(2.69)
@@ -25,6 +25,7 @@ AC_SYS_LARGEFILE
 AM_MAINTAINER_MODE
 
 AX_WITH_CURSES
+AX_PATH_LIB_PCRE
 
 if test -f configure.ac; then
     AC_MSG_ERROR([configure should be run in a separate build directory], [1])
