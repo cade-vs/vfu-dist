@@ -22,6 +22,7 @@
    + 2. Added Autotools configure and compile (thanks to Andy Alt!)
    ! 3. Report available space instead of free space (root reserved).
    + 4. Added copy speed reporting.
+   ! 5. Fixed directory size cache for larger than 999GB directories.
 
    4.17: 12.June.2018
    
