@@ -1,0 +1,15 @@
+# build directory
+build
+
+# Created when autoreconf is run by the maintainer. This directory isn't needed
+# by developers
+autom4te.cache
+
+# These directories are intended to be inside the vfu-dist direcory
+# but are not under revision control within the vfu-dist directory
+/vfu/
+/vslib/
+/yascreen/
+
+# Miscellaneous
+*~
