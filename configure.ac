@@ -5,7 +5,7 @@ AC_INIT([vfu], [4.18], [https://github.com/cade-vs/vfu/issues],,[http://cade.dat
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([subdir-objects foreign no-dependencies])
 AC_PREREQ(2.69)
-AC_CONFIG_HEADERS([vfu/config.h:config.in])
+AC_CONFIG_HEADERS([config.h:config.in])
 
 # Don't add -g and -O2 by default
 : ${CFLAGS=""}
@@ -14,10 +14,14 @@ AC_CONFIG_HEADERS([vfu/config.h:config.in])
 # This will add debug and profiling options to ./configure
 AX_CHECK_ENABLE_DEBUG([yes])
 
+AC_PROG_CC # yascreen use C, not CXX
 AC_PROG_CXX
 AC_CONFIG_MACRO_DIRS([build-aux/m4])
 AC_PROG_INSTALL
 AC_SYS_LARGEFILE
+
+# Allows for building static libraries
+AC_PROG_RANLIB
 
 # This prevents problems such as those shown in
 # https://github.com/theimpossibleastronaut/rmw/commit/90200c2df06b16f16b5d21d25c51966c0ee65b23#commitcomment-30291627
@@ -32,5 +36,8 @@ if test -f configure.ac; then
 fi
 
 AC_CONFIG_FILES([   Makefile
+                    yas-libs/Makefile
+                    vslib/Makefile
+                    vslib/t/Makefile
                     vfu/Makefile])
 AC_OUTPUT
