@@ -262,7 +262,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 noinst_LIBRARIES = libyascreen.a
-AM_CFLAGS = -I $(top_srcdir)/yascreen --std=gnu89
+AM_CFLAGS = -Wall -I $(top_srcdir)/yascreen --std=gnu89
 libyascreen_a_SOURCES = $(top_srcdir)/yascreen/yascreen.c
 all: all-am
 
