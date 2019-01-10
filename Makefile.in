@@ -935,6 +935,11 @@ uninstall-man: uninstall-man1
 .PRECIOUS: Makefile
 
 
+vfu.yas$(EXEEXT):
+	make -C $(top_builddir)/yas-libs all; \
+	make -C $(top_builddir)/vslib all; \
+	make -C $(top_builddir)/vfu vfu.yas;
+
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:
