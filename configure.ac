@@ -43,14 +43,18 @@ if test "x$enable_yascreen" = xyes || test "x$ax_cv_curses" = xno; then
     AC_MSG_NOTICE(-- vfu will build with yascreen support)
     want_yascreen="yes"
     AM_CONDITIONAL([WANT_YASCREEN], [test "x$want_yascreen" = xyes])
-    CXXFLAGS="-I../../yascreen -DUSE_YASCREEN"
+    AC_DEFINE([USE_YASCREEN], [1], [Define to 1 if yascreen was requested])
+    CXXFLAGS="$CXXFLAGS -I../../yascreen"
     LDFLAGS="-L../yas-libs"
     LIBS="-lrt -lyascreen"
 else
     AM_CONDITIONAL([WANT_YASCREEN], [test "x$want_yascreen" = xno])
-    CXXFLAGS="$CURSES_CFLAGS"
+    CXXFLAGS="$CXXFLAGS $CURSES_CFLAGS"
     LIBS="$CURSES_LIBS"
 fi
+
+# Defining HAVE_CONFIG_H is needed because we are using different sets of Makefiles
+DEFS="$DEFS -DHAVE_CONFIG_H"
 
 AC_CONFIG_FILES([   Makefile
                     yas-libs/Makefile

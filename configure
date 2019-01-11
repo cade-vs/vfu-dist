@@ -5385,7 +5385,10 @@ else
   WANT_YASCREEN_FALSE=
 fi
 
-    CXXFLAGS="-I../../yascreen -DUSE_YASCREEN"
+
+$as_echo "#define USE_YASCREEN 1" >>confdefs.h
+
+    CXXFLAGS="$CXXFLAGS -I../../yascreen"
     LDFLAGS="-L../yas-libs"
     LIBS="-lrt -lyascreen"
 else
@@ -5397,9 +5400,12 @@ else
   WANT_YASCREEN_FALSE=
 fi
 
-    CXXFLAGS="$CURSES_CFLAGS"
+    CXXFLAGS="$CXXFLAGS $CURSES_CFLAGS"
     LIBS="$CURSES_LIBS"
 fi
+
+# Defining HAVE_CONFIG_H is needed because we are using different sets of Makefiles
+DEFS="$DEFS -DHAVE_CONFIG_H"
 
 ac_config_files="$ac_config_files Makefile yas-libs/Makefile vslib/Makefile vslib/t/Makefile vfu/Makefile"
 
