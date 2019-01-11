@@ -588,13 +588,13 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIBOBJS
-PCRE_CFLAGS
-PCRE_LIBS
 PKG_CONFIG_LIBDIR
 PKG_CONFIG_PATH
 PKG_CONFIG
 CURSES_CFLAGS
 CURSES_LIBS
+PCRE_CFLAGS
+PCRE_LIBS
 MAINT
 MAINTAINER_MODE_FALSE
 MAINTAINER_MODE_TRUE
@@ -682,9 +682,10 @@ enable_silent_rules
 enable_debug
 enable_largefile
 enable_maintainer_mode
+with_pcre
 with_ncurses
 with_ncursesw
-with_pcre
+enable_yascreen
 '
       ac_precious_vars='build_alias
 host_alias
@@ -1335,13 +1336,15 @@ Optional Features:
   --enable-maintainer-mode
                           enable make rules and dependencies not useful (and
                           sometimes confusing) to the casual installer
+  --enable-yascreen       use yascreen instead of curses/ncurses
+
 
 Optional Packages:
   --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
   --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
+  --with-pcre[=prefix]    compile xmlpcre part (via libpcre check)
   --with-ncurses          force the use of Ncurses or NcursesW
   --without-ncursesw      do not use NcursesW (wide character support)
-  --with-pcre[=prefix]    compile xmlpcre part (via libpcre check)
 
 Some influential environment variables:
   CC          C compiler command
@@ -2527,6 +2530,10 @@ fi
 
 ac_config_headers="$ac_config_headers config.h:config.in"
 
+
+if test -f configure.ac; then
+    as_fn_error 1 "configure should be run in a separate build directory" "$LINENO" 5
+fi
 
 # Don't add -g and -O2 by default
 : ${CFLAGS=""}
@@ -4057,6 +4064,148 @@ fi
 
 
 
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking lib pcre" >&5
+$as_echo_n "checking lib pcre... " >&6; }
+
+# Check whether --with-pcre was given.
+if test "${with_pcre+set}" = set; then :
+  withval=$with_pcre;
+else
+  with_pcre="yes"
+fi
+
+if test ".$with_pcre" = ".no" ; then
+  { $as_echo "$as_me:${as_lineno-$LINENO}: result: disabled" >&5
+$as_echo "disabled" >&6; }
+
+else
+  { $as_echo "$as_me:${as_lineno-$LINENO}: result: (testing)" >&5
+$as_echo "(testing)" >&6; }
+  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for pcre_study in -lpcre" >&5
+$as_echo_n "checking for pcre_study in -lpcre... " >&6; }
+if ${ac_cv_lib_pcre_pcre_study+:} false; then :
+  $as_echo_n "(cached) " >&6
+else
+  ac_check_lib_save_LIBS=$LIBS
+LIBS="-lpcre  $LIBS"
+cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+/* Override any GCC internal prototype to avoid an error.
+   Use char because int might match the return type of a GCC
+   builtin and then its argument prototype would still apply.  */
+#ifdef __cplusplus
+extern "C"
+#endif
+char pcre_study ();
+int
+main ()
+{
+return pcre_study ();
+  ;
+  return 0;
+}
+_ACEOF
+if ac_fn_c_try_link "$LINENO"; then :
+  ac_cv_lib_pcre_pcre_study=yes
+else
+  ac_cv_lib_pcre_pcre_study=no
+fi
+rm -f core conftest.err conftest.$ac_objext \
+    conftest$ac_exeext conftest.$ac_ext
+LIBS=$ac_check_lib_save_LIBS
+fi
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_pcre_pcre_study" >&5
+$as_echo "$ac_cv_lib_pcre_pcre_study" >&6; }
+if test "x$ac_cv_lib_pcre_pcre_study" = xyes; then :
+  cat >>confdefs.h <<_ACEOF
+#define HAVE_LIBPCRE 1
+_ACEOF
+
+  LIBS="-lpcre $LIBS"
+
+fi
+
+  if test "$ac_cv_lib_pcre_pcre_study" = "yes" ; then
+     PCRE_LIBS="-lpcre"
+     { $as_echo "$as_me:${as_lineno-$LINENO}: checking lib pcre" >&5
+$as_echo_n "checking lib pcre... " >&6; }
+     { $as_echo "$as_me:${as_lineno-$LINENO}: result: $PCRE_LIBS" >&5
+$as_echo "$PCRE_LIBS" >&6; }
+
+  else
+     OLDLDFLAGS="$LDFLAGS" ; LDFLAGS="$LDFLAGS -L$with_pcre/lib"
+     OLDCPPFLAGS="$CPPFLAGS" ; CPPFLAGS="$CPPFLAGS -I$with_pcre/include"
+     { $as_echo "$as_me:${as_lineno-$LINENO}: checking for pcre_compile in -lpcre" >&5
+$as_echo_n "checking for pcre_compile in -lpcre... " >&6; }
+if ${ac_cv_lib_pcre_pcre_compile+:} false; then :
+  $as_echo_n "(cached) " >&6
+else
+  ac_check_lib_save_LIBS=$LIBS
+LIBS="-lpcre  $LIBS"
+cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+
+/* Override any GCC internal prototype to avoid an error.
+   Use char because int might match the return type of a GCC
+   builtin and then its argument prototype would still apply.  */
+#ifdef __cplusplus
+extern "C"
+#endif
+char pcre_compile ();
+int
+main ()
+{
+return pcre_compile ();
+  ;
+  return 0;
+}
+_ACEOF
+if ac_fn_c_try_link "$LINENO"; then :
+  ac_cv_lib_pcre_pcre_compile=yes
+else
+  ac_cv_lib_pcre_pcre_compile=no
+fi
+rm -f core conftest.err conftest.$ac_objext \
+    conftest$ac_exeext conftest.$ac_ext
+LIBS=$ac_check_lib_save_LIBS
+fi
+{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_pcre_pcre_compile" >&5
+$as_echo "$ac_cv_lib_pcre_pcre_compile" >&6; }
+if test "x$ac_cv_lib_pcre_pcre_compile" = xyes; then :
+  cat >>confdefs.h <<_ACEOF
+#define HAVE_LIBPCRE 1
+_ACEOF
+
+  LIBS="-lpcre $LIBS"
+
+fi
+
+     CPPFLAGS="$OLDCPPFLAGS"
+     LDFLAGS="$OLDLDFLAGS"
+     if test "$ac_cv_lib_pcre_pcre_compile" = "yes" ; then
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: .setting PCRE_LIBS -L$with_pcre/lib -lpcre" >&5
+$as_echo ".setting PCRE_LIBS -L$with_pcre/lib -lpcre" >&6; }
+        PCRE_LIBS="-L$with_pcre/lib -lpcre"
+        test -d "$with_pcre/include" && PCRE_CFLAGS="-I$with_pcre/include"
+        { $as_echo "$as_me:${as_lineno-$LINENO}: checking lib pcre" >&5
+$as_echo_n "checking lib pcre... " >&6; }
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: $PCRE_LIBS" >&5
+$as_echo "$PCRE_LIBS" >&6; }
+
+     else
+        { $as_echo "$as_me:${as_lineno-$LINENO}: checking lib pcre" >&5
+$as_echo_n "checking lib pcre... " >&6; }
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no, (WARNING)" >&5
+$as_echo "no, (WARNING)" >&6; }
+
+     fi
+  fi
+fi
+
+
+
+
 
 
 
@@ -5217,150 +5366,20 @@ fi
     unset ax_saved_LIBS
     unset ax_saved_CPPFLAGS
 
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking lib pcre" >&5
-$as_echo_n "checking lib pcre... " >&6; }
+# Check whether --enable-yascreen was given.
+if test "${enable_yascreen+set}" = set; then :
+  enableval=$enable_yascreen;
+fi
 
-# Check whether --with-pcre was given.
-if test "${with_pcre+set}" = set; then :
-  withval=$with_pcre;
+if test "x$enable_yascreen" = xyes || test "x$ax_cv_curses" = xno; then
+    { $as_echo "$as_me:${as_lineno-$LINENO}: -- vfu will build with yascreen support" >&5
+$as_echo "$as_me: -- vfu will build with yascreen support" >&6;}
+    CXXFLAGS="-I../../yascreen -DUSE_YASCREEN"
+    LDFLAGS="-L../yas-libs"
+    LIBS="-lrt -lyascreen"
 else
-  with_pcre="yes"
-fi
-
-if test ".$with_pcre" = ".no" ; then
-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: disabled" >&5
-$as_echo "disabled" >&6; }
-
-else
-  { $as_echo "$as_me:${as_lineno-$LINENO}: result: (testing)" >&5
-$as_echo "(testing)" >&6; }
-  { $as_echo "$as_me:${as_lineno-$LINENO}: checking for pcre_study in -lpcre" >&5
-$as_echo_n "checking for pcre_study in -lpcre... " >&6; }
-if ${ac_cv_lib_pcre_pcre_study+:} false; then :
-  $as_echo_n "(cached) " >&6
-else
-  ac_check_lib_save_LIBS=$LIBS
-LIBS="-lpcre  $LIBS"
-cat confdefs.h - <<_ACEOF >conftest.$ac_ext
-/* end confdefs.h.  */
-
-/* Override any GCC internal prototype to avoid an error.
-   Use char because int might match the return type of a GCC
-   builtin and then its argument prototype would still apply.  */
-#ifdef __cplusplus
-extern "C"
-#endif
-char pcre_study ();
-int
-main ()
-{
-return pcre_study ();
-  ;
-  return 0;
-}
-_ACEOF
-if ac_fn_c_try_link "$LINENO"; then :
-  ac_cv_lib_pcre_pcre_study=yes
-else
-  ac_cv_lib_pcre_pcre_study=no
-fi
-rm -f core conftest.err conftest.$ac_objext \
-    conftest$ac_exeext conftest.$ac_ext
-LIBS=$ac_check_lib_save_LIBS
-fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_pcre_pcre_study" >&5
-$as_echo "$ac_cv_lib_pcre_pcre_study" >&6; }
-if test "x$ac_cv_lib_pcre_pcre_study" = xyes; then :
-  cat >>confdefs.h <<_ACEOF
-#define HAVE_LIBPCRE 1
-_ACEOF
-
-  LIBS="-lpcre $LIBS"
-
-fi
-
-  if test "$ac_cv_lib_pcre_pcre_study" = "yes" ; then
-     PCRE_LIBS="-lpcre"
-     { $as_echo "$as_me:${as_lineno-$LINENO}: checking lib pcre" >&5
-$as_echo_n "checking lib pcre... " >&6; }
-     { $as_echo "$as_me:${as_lineno-$LINENO}: result: $PCRE_LIBS" >&5
-$as_echo "$PCRE_LIBS" >&6; }
-
-  else
-     OLDLDFLAGS="$LDFLAGS" ; LDFLAGS="$LDFLAGS -L$with_pcre/lib"
-     OLDCPPFLAGS="$CPPFLAGS" ; CPPFLAGS="$CPPFLAGS -I$with_pcre/include"
-     { $as_echo "$as_me:${as_lineno-$LINENO}: checking for pcre_compile in -lpcre" >&5
-$as_echo_n "checking for pcre_compile in -lpcre... " >&6; }
-if ${ac_cv_lib_pcre_pcre_compile+:} false; then :
-  $as_echo_n "(cached) " >&6
-else
-  ac_check_lib_save_LIBS=$LIBS
-LIBS="-lpcre  $LIBS"
-cat confdefs.h - <<_ACEOF >conftest.$ac_ext
-/* end confdefs.h.  */
-
-/* Override any GCC internal prototype to avoid an error.
-   Use char because int might match the return type of a GCC
-   builtin and then its argument prototype would still apply.  */
-#ifdef __cplusplus
-extern "C"
-#endif
-char pcre_compile ();
-int
-main ()
-{
-return pcre_compile ();
-  ;
-  return 0;
-}
-_ACEOF
-if ac_fn_c_try_link "$LINENO"; then :
-  ac_cv_lib_pcre_pcre_compile=yes
-else
-  ac_cv_lib_pcre_pcre_compile=no
-fi
-rm -f core conftest.err conftest.$ac_objext \
-    conftest$ac_exeext conftest.$ac_ext
-LIBS=$ac_check_lib_save_LIBS
-fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_lib_pcre_pcre_compile" >&5
-$as_echo "$ac_cv_lib_pcre_pcre_compile" >&6; }
-if test "x$ac_cv_lib_pcre_pcre_compile" = xyes; then :
-  cat >>confdefs.h <<_ACEOF
-#define HAVE_LIBPCRE 1
-_ACEOF
-
-  LIBS="-lpcre $LIBS"
-
-fi
-
-     CPPFLAGS="$OLDCPPFLAGS"
-     LDFLAGS="$OLDLDFLAGS"
-     if test "$ac_cv_lib_pcre_pcre_compile" = "yes" ; then
-        { $as_echo "$as_me:${as_lineno-$LINENO}: result: .setting PCRE_LIBS -L$with_pcre/lib -lpcre" >&5
-$as_echo ".setting PCRE_LIBS -L$with_pcre/lib -lpcre" >&6; }
-        PCRE_LIBS="-L$with_pcre/lib -lpcre"
-        test -d "$with_pcre/include" && PCRE_CFLAGS="-I$with_pcre/include"
-        { $as_echo "$as_me:${as_lineno-$LINENO}: checking lib pcre" >&5
-$as_echo_n "checking lib pcre... " >&6; }
-        { $as_echo "$as_me:${as_lineno-$LINENO}: result: $PCRE_LIBS" >&5
-$as_echo "$PCRE_LIBS" >&6; }
-
-     else
-        { $as_echo "$as_me:${as_lineno-$LINENO}: checking lib pcre" >&5
-$as_echo_n "checking lib pcre... " >&6; }
-        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no, (WARNING)" >&5
-$as_echo "no, (WARNING)" >&6; }
-
-     fi
-  fi
-fi
-
-
-
-
-if test -f configure.ac; then
-    as_fn_error 1 "configure should be run in a separate build directory" "$LINENO" 5
+    CXXFLAGS="$CURSES_CFLAGS"
+    LIBS="$CURSES_LIBS"
 fi
 
 ac_config_files="$ac_config_files Makefile yas-libs/Makefile vslib/Makefile vslib/t/Makefile vfu/Makefile"

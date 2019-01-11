@@ -34,8 +34,3 @@ dist_man_MANS=vfu.1
 sysconf_DATA = vfu.conf
 
 ACLOCAL_AMFLAGS = --install -I build-aux/m4
-
-vfu.yas$(EXEEXT):
-	make -C $(top_builddir)/yas-libs all; \
-	make -C $(top_builddir)/vslib all; \
-	make -C $(top_builddir)/vfu vfu.yas;

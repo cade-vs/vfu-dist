@@ -7,6 +7,10 @@ AM_INIT_AUTOMAKE([subdir-objects foreign no-dependencies])
 AC_PREREQ(2.69)
 AC_CONFIG_HEADERS([config.h:config.in])
 
+if test -f configure.ac; then
+    AC_MSG_ERROR([configure should be run in a separate build directory], [1])
+fi
+
 # Don't add -g and -O2 by default
 : ${CFLAGS=""}
 
@@ -28,11 +32,21 @@ AC_PROG_RANLIB
 # and https://github.com/theimpossibleastronaut/rmw/issues/21
 AM_MAINTAINER_MODE
 
-AX_WITH_CURSES
 AX_PATH_LIB_PCRE
 
-if test -f configure.ac; then
-    AC_MSG_ERROR([configure should be run in a separate build directory], [1])
+AX_WITH_CURSES
+AC_ARG_ENABLE(
+	yascreen,
+	AC_HELP_STRING(--enable-yascreen, use yascreen instead of curses/ncurses)
+)
+if test "x$enable_yascreen" = xyes || test "x$ax_cv_curses" = xno; then
+    AC_MSG_NOTICE(-- vfu will build with yascreen support)
+    CXXFLAGS="-I../../yascreen -DUSE_YASCREEN"
+    LDFLAGS="-L../yas-libs"
+    LIBS="-lrt -lyascreen"
+else
+    CXXFLAGS="$CURSES_CFLAGS"
+    LIBS="$CURSES_LIBS"
 fi
 
 AC_CONFIG_FILES([   Makefile
