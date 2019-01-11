@@ -41,10 +41,13 @@ AC_ARG_ENABLE(
 )
 if test "x$enable_yascreen" = xyes || test "x$ax_cv_curses" = xno; then
     AC_MSG_NOTICE(-- vfu will build with yascreen support)
+    want_yascreen="yes"
+    AM_CONDITIONAL([WANT_YASCREEN], [test "x$want_yascreen" = xyes])
     CXXFLAGS="-I../../yascreen -DUSE_YASCREEN"
     LDFLAGS="-L../yas-libs"
     LIBS="-lrt -lyascreen"
 else
+    AM_CONDITIONAL([WANT_YASCREEN], [test "x$want_yascreen" = xno])
     CXXFLAGS="$CURSES_CFLAGS"
     LIBS="$CURSES_LIBS"
 fi

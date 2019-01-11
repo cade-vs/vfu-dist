@@ -588,6 +588,8 @@ ac_subst_vars='am__EXEEXT_FALSE
 am__EXEEXT_TRUE
 LTLIBOBJS
 LIBOBJS
+WANT_YASCREEN_FALSE
+WANT_YASCREEN_TRUE
 PKG_CONFIG_LIBDIR
 PKG_CONFIG_PATH
 PKG_CONFIG
@@ -5374,10 +5376,27 @@ fi
 if test "x$enable_yascreen" = xyes || test "x$ax_cv_curses" = xno; then
     { $as_echo "$as_me:${as_lineno-$LINENO}: -- vfu will build with yascreen support" >&5
 $as_echo "$as_me: -- vfu will build with yascreen support" >&6;}
+    want_yascreen="yes"
+     if test "x$want_yascreen" = xyes; then
+  WANT_YASCREEN_TRUE=
+  WANT_YASCREEN_FALSE='#'
+else
+  WANT_YASCREEN_TRUE='#'
+  WANT_YASCREEN_FALSE=
+fi
+
     CXXFLAGS="-I../../yascreen -DUSE_YASCREEN"
     LDFLAGS="-L../yas-libs"
     LIBS="-lrt -lyascreen"
 else
+     if test "x$want_yascreen" = xno; then
+  WANT_YASCREEN_TRUE=
+  WANT_YASCREEN_FALSE='#'
+else
+  WANT_YASCREEN_TRUE='#'
+  WANT_YASCREEN_FALSE=
+fi
+
     CXXFLAGS="$CURSES_CFLAGS"
     LIBS="$CURSES_LIBS"
 fi
@@ -5511,6 +5530,14 @@ fi
 
 if test -z "${MAINTAINER_MODE_TRUE}" && test -z "${MAINTAINER_MODE_FALSE}"; then
   as_fn_error $? "conditional \"MAINTAINER_MODE\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${WANT_YASCREEN_TRUE}" && test -z "${WANT_YASCREEN_FALSE}"; then
+  as_fn_error $? "conditional \"WANT_YASCREEN\" was never defined.
+Usually this means the macro was only invoked conditionally." "$LINENO" 5
+fi
+if test -z "${WANT_YASCREEN_TRUE}" && test -z "${WANT_YASCREEN_FALSE}"; then
+  as_fn_error $? "conditional \"WANT_YASCREEN\" was never defined.
 Usually this means the macro was only invoked conditionally." "$LINENO" 5
 fi
 
