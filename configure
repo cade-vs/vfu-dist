@@ -5373,6 +5373,7 @@ if test "${enable_yascreen+set}" = set; then :
   enableval=$enable_yascreen;
 fi
 
+
 if test "x$enable_yascreen" = xyes || test "x$ax_cv_curses" = xno; then
     { $as_echo "$as_me:${as_lineno-$LINENO}: -- vfu will build with yascreen support" >&5
 $as_echo "$as_me: -- vfu will build with yascreen support" >&6;}
@@ -5388,7 +5389,7 @@ fi
 
 $as_echo "#define USE_YASCREEN 1" >>confdefs.h
 
-    CXXFLAGS="$CXXFLAGS -I../../yascreen"
+    CXXFLAGS="$CXXFLAGS -I$ac_abs_confdir/yascreen"
     LDFLAGS="-L../yas-libs"
     LIBS="-lrt -lyascreen"
 else
