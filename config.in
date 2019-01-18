@@ -60,6 +60,9 @@
 /* Define to the version of this package. */
 #undef PACKAGE_VERSION
 
+/* Define to 1 if yascreen was requested */
+#undef USE_YASCREEN
+
 /* Version number of package */
 #undef VERSION
 

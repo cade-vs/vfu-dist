@@ -1,4 +1,4 @@
-SUBDIRS = vfu
+SUBDIRS = yas-libs vslib vslib/t vfu
 
 packextrasdir=@docdir@
 EXTRA_DIST = \
