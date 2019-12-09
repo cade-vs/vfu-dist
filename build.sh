@@ -11,6 +11,17 @@ fi
 
 cd ..
 
+echo "Compiling YASCREEN..."
+cd yascreen
+make
+if [ -e yascreen.a ]; then
+  echo "VSLIB compiled ok."
+else
+  echo "VSLIB compilation failed..."
+fi
+
+cd ..
+
 echo "Compiling VFU..."
 cd vfu
 make

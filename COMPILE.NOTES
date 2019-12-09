@@ -1,6 +1,12 @@
 
   This file contains some misc notes...
 
+  -- For Debian/Devuan you need to:
+  
+     apt-get install make gcc g++ libpcre3-dev libncurses5-dev
+     
+     then run 'make' in vfu base directory
+
   -- If you try to compile vfu under NetBSD:
  
      try to use `build.netbsd'...
@@ -25,7 +31,7 @@
   #ifdef _TARGET_UNKNOWN_
     #if defined(__RS6000__)
     #define _TARGET_RS6000_
-    #define _TARGET_DESCRIPTION_	"UNIX/RS6000"
+    #define _TARGET_DESCRIPTION_  "UNIX/RS6000"
     #undef _TARGET_UNKNOWN_
     #endif
   #endif

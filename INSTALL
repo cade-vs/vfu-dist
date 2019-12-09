@@ -5,19 +5,14 @@
 
      this should compile everything
 
-     to compile each part of vfu manually do this:
+     to compile each part of vfu manually run these commands:
 
-     -- `git clone yascreen https://github.com/bbonev/yascreen.git`
-     -- go to `yascreen` directory
-     -- run 'make'
-     -- cd ..
-     -- `git clone https://github.com/cade-vs/vslib.git`
-     -- go to `vslib' directory
-     -- run `make'
-     -- cd ..
-     -- `git clone https://github.com/cade-vs/vfu.git`
-     -- go to `vfu' directory
-     -- run `make'
+           git clone https://github.com/bbonev/yascreen.git
+           make -C yascreen
+           git clone https://github.com/cade-vs/vslib.git
+           make -C vslib
+           git clone https://github.com/cade-vs/vfu.git
+           make -C vfu
 
      if something goes wrong, check these:
 
@@ -29,12 +24,12 @@
 
      to get file sizes above 4GB shown properly you need to make this way:
 
-          export CCDEF="-D_FILE_OFFSET_BITS=64"
-          make
+            export CCDEF="-D_FILE_OFFSET_BITS=64"
+            make
 
        or
 
-          make CCDEF="-D_FILE_OFFSET_BITS=64"
+            make CCDEF="-D_FILE_OFFSET_BITS=64"
 
    2. how to install vfu
 
@@ -90,6 +85,10 @@
       vfu also needs curses:
 
         apt-get install libncurses5-dev
+
+      with all dev tools, in Debian/Devuan you need to:
+      
+        apt-get install make gcc g++ libpcre3-dev libncurses5-dev
 
       if you dont have this package or do not want to install it, you can
       try VFU (VSLIB) internal pcre library (i.e. pcre snapshot, used with

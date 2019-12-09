@@ -1,6 +1,22 @@
+
+most simple way to have VFU to exit to different directory 
+is to have this bash function in ~/.profile or similar location:
+
 function vfu() 
   { 
   /usr/local/bin/vfu $*; 
   cd "`cat /tmp/vfu.exit.$USER`";
   rm -f /tmp/vfu.exit.$USER; 
+  }
+
+if you do not want this file to be in the system-wide /tmp directory, you can 
+change it in ~/.profile or similar location:
+
+
+export VFU_EXIT=/home/cade/tmp/vfu.exit.tmp 
+function vfu() 
+  { 
+  ~/bin/vfu $*; 
+  cd "`cat $VFU_EXIT`";
+  rm -f $VFU_EXIT; 
   }
