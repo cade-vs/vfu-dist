@@ -1,35 +1,37 @@
 #!/bin/sh
 
+echo "-------------------------------------------------"
+echo "Compiling VSTRING..."
+make -C vstring
+if [ -e vstring/libvstring.a ]; then
+  echo "VSTRING compiled ok."
+else
+  echo "VSTRING compilation failed..."
+fi
+
+echo "-------------------------------------------------"
 echo "Compiling VSLIB..."
-cd vslib
-make
-if [ -e libvslib.a ]; then
+make -C vslib
+if [ -e vslib/libvslib.a ]; then
   echo "VSLIB compiled ok."
 else
   echo "VSLIB compilation failed..."
 fi
 
-cd ..
-
+echo "-------------------------------------------------"
 echo "Compiling YASCREEN..."
-cd yascreen
-make
-if [ -e yascreen.a ]; then
+make -C yascreen
+if [ -e yascreen/yascreen.a ]; then
   echo "VSLIB compiled ok."
 else
   echo "VSLIB compilation failed..."
 fi
 
-cd ..
-
+echo "-------------------------------------------------"
 echo "Compiling VFU..."
-cd vfu
-make
-if [ -e vfu ]; then
+make -C vfu
+if [ -e vfu/vfu ]; then
   echo "VFU compiled ok."
 else
   echo "VFU compilation failed..."
 fi
-
-cd ..
- 
