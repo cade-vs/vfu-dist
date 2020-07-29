@@ -11,22 +11,22 @@ if [ ! -e rx/rx_auto ]; then
   exit;
 fi
 
-echo "Press ENTER to install vfu in /usr/local/bin and rx_* in /usr/lib/vfu"
+echo "Press ENTER to install vfu in /usr/local/bin and rx_* in /usr/libexec/vfu"
 echo "Or press Ctrl+C to cancel"
 read
 
 cp vfu/vfu /usr/local/bin
-mkdir /usr/lib/vfu
-cp rx/rx_* /usr/lib/vfu
+mkdir /usr/libexec/vfu
+cp rx/rx_* /usr/libexec/vfu
 
 cp vfu.1 /usr/local/man/man1
 
-cp vfu.conf /usr/lib/vfu
+cp vfu.conf /usr/libexec/vfu
 
 cd /usr/local/bin
 chmod 755 vfu
 
-cd /usr/lib/vfu
+cd /usr/libexec/vfu
 chmod 755 rx_*
 
 echo "done."
