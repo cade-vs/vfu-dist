@@ -74,14 +74,14 @@ menu and `SPACE` to turn off option). It is also possible to use a different vie
 
 == Custom File Associations: ==
 Vfu can be customised to open different files with different programs;
-Entrys are put in the comma separated format such as: 
+Entries are put in the comma separated format such as: 
 {{{
 ux=SEE DOC,ENTER,.doc.DOC.odt.sxw.,ooffice2 -writer "%f" &
 }}}
 Where:
  * '''SEE DOC''' is just a short descriptive name
  * '''ENTER''' is the action on the file
- * '''.ext.ext.ext.ext.''' the file extentions to which the actions apply (dot separated list)
+ * '''.ext.ext.ext.ext.''' the file extensions to which the actions apply (dot separated list)
  * '''ooffice2 -writer "%f"''' is the command to use on the file, "%f" is the location of the file
  * '''&''' indicates that you wish to continue using vfu whist the file is open
 Thus, vfu will open ooffice2 -writer when I press ENTER on a .odt file (or .doc , .sxw etc).
@@ -237,7 +237,7 @@ ux=vmpg123: View running/queue,menu,*,ps xeo "%%p %%a" | grep mpg123 | grep -v g
 Where extra options have been added to play music/videos in xfmedia or vlc and to show pictures in 
 feh. i.e. It is now possible to open a folder of pictures using feh or a folder of music using vlc (with the options for a nice skin)
 
-But the best way to find out about vfu (and most other programs) is to make a backup of the file and then play arround with it to see what you can get it to do.
+But the best way to find out about vfu (and most other programs) is to make a backup of the file and then play around with it to see what you can get it to do.
 
 == Links ==
 [[http://cade.datamax.bg/vfu/|vfu homepage]]

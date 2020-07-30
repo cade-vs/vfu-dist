@@ -24,29 +24,29 @@
    ! 5. Fixed directory size cache for larger than 999GB directories.
 
    4.17: 12.June.2018
-   
+
    + 1. Directory size calculations menu (key "Z") has new options:
                 * follow symlinks (WARNING: may cause loops!)
                 * stay on the same device/filesystem
    + 2. Dynamic files list allocation: i.e. low memory consumption and
         unlimited files list count (up to the available memory)
-        
+
    + 3. Added new rename tools:
-                * prefix selected file names with current date     
+                * prefix selected file names with current date
                 * prefix selected file names with current date+time
                 Tools (key "T") -> Rename tools (key "A")
 
    4.16: 05.May.2015
-   
+
    % 1. Verified that VFU (and vstring/vslib) compiles clean with clang :)
    + 2. Added option to show file/dir sizes either in IEC or SI units.
         (cheers Larry :))
-        
-   
+
+
    4.15: 17.Jan.2014
-   
-   ! 1. Fixed bug with directory name completion which freezes VFU when case 
-        insesitive completion options is enabled.
+
+   ! 1. Fixed bug with directory name completion which freezes VFU when case
+        insensitive completion options is enabled.
 
    4.14: 04.Jan.2014
 
@@ -58,14 +58,14 @@
    + 2. Added missing incremental search commands in the HELP :)
         (keys "S" and "Alt+S").
 
-   + 3. VFU (and VF before it) was designed to keep directories on top of 
-        the file list. There is flag for disabling this inside the code, 
+   + 3. VFU (and VF before it) was designed to keep directories on top of
+        the file list. There is flag for disabling this inside the code,
         but it was never visible. Now this long lost option is exported
         to the options menu. :)
 
    + 4. Added "Smart" Home/End keys navigation. When this option is enabled
-        HOME and END keys will toggle between top and bottom fo the files list
-        and firs/last directory or file. 
+        HOME and END keys will toggle between top and bottom of the files list
+        and firs/last directory or file.
         Example:
                  * first HOME will go to the beginning of the file list
                  * next HOME will go to the first file (not dir) in the list
@@ -164,7 +164,7 @@
 
    + 2. Tools/Go_To_Symlink_Target tool added.
         It can change directory to symlink target's one and go to
-        target name. It is usefull if you want to inspect symlink
+        target name. It is useful if you want to inspect symlink
         target.
 
    + 3. Tools/Go_Back_To_Last_Target tool added.
@@ -266,7 +266,7 @@
 
      + 5. Actual files size is now reported before copy/move.
 
-     + 6. Size chache is now auto-cleaned on dir size recalculation.
+     + 6. Size cache is now auto-cleaned on dir size recalculation.
 
      + 7. Now errors on copy/move/symlink/erase can be ignored (always
           skipped quietly).
@@ -420,7 +420,7 @@
      +11. Now entries in the filelist can be moved ( see
           ArrangeMenu/MoveEntry )
 
-     !12. Now VFU keeps current file postition after change
+     !12. Now VFU keeps current file position after change
           of sort order.
 
      !13. Better preserve/copy mode/protection when copy/move
@@ -489,7 +489,7 @@
 
    1.45: 03.Mar.1999
 
-      + 1. `%i' and `%n' macros added. (See abov for details)
+      + 1. `%i' and `%n' macros added. (See above for details)
 
       ! 2. Now VFU won't expand masks if you enter external scan/panelize
            command in the file mask field.
@@ -731,14 +731,14 @@
            more comfortable than gcc+joe :) Well I know that
            there is RHIDE for Linux but I haven't tried it yet...
 
-      + 1. New files' attributes/mode set/get engine.
+      + 1. New file attributes/mode set/get engine.
            Now VFU supports different attrib's under
            different OS-es transparently:
            Linux/UNIX: `drwxrwxrwx'
            DOS:        `DV----RHSA'
 
       + 2. `VFFilenames' style added for DOS *only*! This means
-           all dirs' names are upper case and all files' names
+           all dirs' names are upper case and all file names
            are lower case (but this is only for the screen!)
 
       + 3. Added IncrementalSearch to the file list and the
@@ -776,7 +776,7 @@
 
       + 1. `Options/Toggles' screen added (key `O' or Alt+O)
            Options menu (key `o') still exists but is empty for now.
-      + 2. Now you can switch off parts of file informations
+      + 2. Now you can switch off parts of file information
            (i.e. mode/attr, owner, group, time, size...
             see Options/Toggles).
       + 3. DirectoryTree added (key Ctrl+D) incl. hot key
