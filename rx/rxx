@@ -1,0 +1,239 @@
+#!/usr/bin/perl
+#############################################################################
+#
+# RXX -- abstract archiver interface
+# (c) Vladi Belperchinov-Shabanski "Cade" 2002
+# <cade@biscom.net> <cade.datamax.bg> http://cade.webbg.com
+# based on rx_* dispatcher and handlers for VFU File Manager
+#
+# usage:
+#   rxx l archive directory   # list archive directory
+#   rxx v archive             # list entire archive
+#   rxx x archive files...    # extract one file
+#   rxx x archive @listfile   # extract list of files
+#
+#############################################################################
+use strict;
+
+my $CACHE_TTL = 16; # cache time to live in seconds
+
+#############################################################################
+#
+# DISPATCHER
+#
+#############################################################################
+
+my $file = $ARGV[1];
+
+for( glob "/tmp/*.rxx.tmp" )
+  {
+  # clean cache and tmp files, silently skipping errors
+  next unless time() - file_mtime( $_ ) > $CACHE_TTL;
+  unlink $_;
+  }
+
+my $rx = rx_choose( $file );
+
+my %RX_MAP = (
+             'rx_tar' => \&rx_tar,
+             );
+
+my $rx_func = $RX_MAP{ $rx };
+
+die "$0: this file type is not known to me, sorry\n" unless $rx_func;
+
+# FIXME: getopt?
+$rx_func->( @ARGV );
+
+sub rx_choose
+{
+  local $_ = shift;
+  return "rx_tar" if /\.(tar(\.(z|gz|bz2))?|t[bgx]z)$/i;
+  return "rx_zip" if /\.(zip|jar|pk3|egg|maff)$/i;
+  return "rx_deb" if /\.deb$/i;
+  return "rx_ftp" if /\.ftp$/i;
+  return "rx_rar" if /\.rar$/i;
+  return "rx_rpm" if /\.rpm$/i;
+}
+
+#############################################################################
+#
+# TAR
+#
+#############################################################################
+
+sub rx_tar
+{
+  my $cmd     = lc shift;
+  my $archive =    shift;
+
+  my $cache = "/tmp/$archive.cache.rxx.tmp";
+  $cache =~ s/^(\/tmp\/)(.+)\/([^\/]+)$/$1$3/; # strip middle path
+
+  if ( $cmd eq "l" || $cmd eq "v" )
+    {
+    my $dir = shift;
+
+    if( ! -e $cache )
+      {
+      # cache not found--fill it
+      system( "tar xvf   \"$archive\"             > \"$cache\"" ) if $archive =~ /\.tar$/i;
+      system( "gzip  -dc \"$archive\" | tar tvf - > \"$cache\"" ) if $archive =~ /\.tar\.g?z(\.rx\.cache)?$/i;
+      system( "gzip  -dc \"$archive\" | tar tvf - > \"$cache\"" ) if $archive =~ /\.tgz$/i;
+      system( "xz    -dc \"$archive\" | tar tvf - > \"$cache\"" ) if $archive =~ /\.txz$/i;
+      system( "bzip2 -dc \"$archive\" | tar tvf - > \"$cache\"" ) if $archive =~ /\.tar\.bz2?$/i;
+      chmod oct(600), $cache; # a bit late but still... :)
+      }
+    else
+      {
+      utime time(), time(), $cache; # update last modification time of the cache
+      }
+
+    my $content = rx_tar_read_archive( $cache );
+
+    use Data::Dumper;
+    print Dumper( $content );
+
+      if ( $cmd eq "l" )
+        {
+        $dir .= "/" unless $dir =~ /\/$/;
+        $dir =~ s/^\/(.+)$/$1/; # strip leading /, FIXME: make func
+        }
+      else
+        {
+        $dir = '*';
+        }
+
+    exit unless exists $content->{ $dir };
+    for my $e ( keys %{ $content->{ $dir } } )
+      {
+      my %E = %{ $content->{ $dir }{ $e } };
+      print "NAME:$E{ NAME }\nSIZE:$E{ SIZE }\nMODE:$E{ MODE }\nTIME:$E{ TIME }\n\n";
+      }
+    }
+  elsif ( $cmd eq "x" )
+    {
+    my $list_fn;
+    if ( $_[0] =~ /^\@(.+)$/ ) # FIXME: handle @_
+      {
+      $list_fn = $1;
+      }
+    else
+      {
+      $list_fn = "/tmp/$$.list.rxx.tmp";
+      open( o, ">$list_fn" );
+      chmod oct(600), $list_fn;
+      for my $entry ( @_ ) # FIXME: handle @_
+        {
+        next if $entry eq '/';
+        next if $entry eq '.';
+        $entry =~ s/^\/(.+)$/$1/; # strip leading /, FIXME: make func
+        print o "$entry\n";
+        }
+      close( o );
+      }
+    system( "                     tar xvf $archive -T $list_fn" ) if $archive =~ /\.tar$/i;
+    system( "gzip  -dc $archive | tar xvf -        -T $list_fn" ) if $archive =~ /\.tar\.g?z(\.rx\.cache)?$/i;
+    system( "gzip  -dc $archive | tar xvf -        -T $list_fn" ) if $archive =~ /\.tgz$/i;
+    system( "xz    -dc $archive | tar xvf -        -T $list_fn" ) if $archive =~ /\.txz$/i;
+    system( "bzip2 -dc $archive | tar xvf -        -T $list_fn" ) if $archive =~ /\.tar\.bz2?$/i;
+    unlink $list_fn;
+    #print "gzip  -dc $archive | tar xvf - -T $list";
+    }
+  else
+    {
+    die $0 . ": wrong command.\n";
+    }
+}
+
+sub rx_tar_read_archive
+{
+  my $cache_fn = shift;
+
+  my %C;
+
+  open( my $i, $cache_fn );
+  while(<$i>)
+    {
+    chop;
+    s/\s+->\s+\S+$//; # no symlinks support?
+    my @D = split /\s+/;
+    my $N = $D[5]; # name
+    my $M = $D[0]; # mode
+
+    # strip leading /s
+    $N =~ s/^\.\///;
+    $N =~ s/^\//\//;
+    $N =~ s/\/$//;
+
+
+    my $F = $N; # full name, before path split
+    my $P; # parent
+    if( $N =~ /^(.+?\/)([^\/]+)$/ )
+      {
+      $P = $1;
+      $N = $2;
+      }
+
+    my $T = "$D[3]$D[4]"; # time
+    $T =~ s/[\-\s\:]//g;
+    $T = substr( $T, 0, 12 );
+
+    my %E;
+
+    $E{ NAME } = $N;
+    $E{ SIZE } = $D[2];
+    $E{ MODE } = $M;
+    $E{ TIME } = $T;
+
+    $C{ $P  }{ $N } = \%E;
+
+    $C{ '*' }{ $F } = { %E, NAME => $F };
+    }
+  close( $i );
+
+  # preprocessing missing dirs
+  for my $p ( keys %C )
+    {
+    next if $p eq '*';
+    $p =~ s/\/$//;
+    my @p = split /\//, $p;
+    my $path;
+    while( @p )
+      {
+      my $next = shift @p;
+      if( ! exists $C{ $path }{ $next } )
+        {
+        my %E;
+
+        $E{ NAME } = "$next/";
+        $E{ SIZE } = 0;
+        $E{ MODE } = "dr-xr-xr-x";
+        $E{ TIME } = "197101010000";
+
+        $C{ $path }{ $next } = \%E;
+        }
+      $path .= "$next/";
+      }
+    }
+
+  $C{ '/' } = $C{ '' };
+  return \%C;
+}
+
+#############################################################################
+#
+# UTILS
+#
+#############################################################################
+
+sub file_mtime
+{
+  return (stat($_[0]))[9];
+}
+
+#############################################################################
+#
+# EOF
+#
+#############################################################################
