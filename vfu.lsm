@@ -4,7 +4,7 @@ Version:        4.16
 Entered-date:   05MAY2015
 Description:    VFU is console (text mode) file manager for UNIX.
                 It has all usual file oprations plus more:
-                - extended completition and wildcard expansion
+                - extended completion and wildcard expansion
                 - directory tree with sizes (incl. sizes cache)
                 - file-type colorization (extension and type)
                 - archives support (TAR, TGZ, BZ2, and many more)

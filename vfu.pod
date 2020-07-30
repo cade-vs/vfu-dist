@@ -11,7 +11,7 @@ vfu [options]
 B<vfu> has following features:
 
  - Fast one-key commands
- - Extended completition and wildcard expansion
+ - Extended completion and wildcard expansion
  - Directory tree with sizes (incl. sizes cache)
  - File-type colorization (extension and type)
  - Archives support (TAR, TGZ, BZ2, and many more)
@@ -126,7 +126,7 @@ All packages are TAR+GZIP .tgz, bz2 and zip are available on request.
 
 B<NOTE>:
 Always check HISTORY document -- it often
-contains some usefull notes!
+contains some useful notes!
 
 =head1 FILES
 
