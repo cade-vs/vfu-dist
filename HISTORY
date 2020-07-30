@@ -4,7 +4,6 @@
    VFU File Manager
    by Vladi Belperchinov-Shabanski "Cade"
    <cade@biscom.net>   <cade@datamax.bg>   <cade@epay.bg>
-   http://soul.datamax.bg/~cade/vfu
    http://cade.datamax.bg/vfu/
 
    ----------------------------------------------------------------------
@@ -16,7 +15,7 @@
       ! bugfix
       % note
 
-   4.18: 31.Dec.2018 
+   4.20: 30.Jul.2020 
    
    + 1. Added estimate finish time reporting for copy/move operations.
    + 2. Added Autotools configure and compile (thanks to Andy Alt!)
