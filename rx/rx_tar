@@ -78,10 +78,10 @@ elsif ( $cmd eq "x" )
   system( "tar xvf   $archive             -T $list" ) if $archive =~ /\.tar$/i;
   system( "gzip  -dc $archive | tar xvf - -T $list" ) if $archive =~ /\.tar\.g?z(\.rx\.cache)?$/i;
   system( "gzip  -dc $archive | tar xvf - -T $list" ) if $archive =~ /\.tgz$/i;
+  system( "xz    -dc $archive | tar xvf - -T $list" ) if $archive =~ /\.tar\.xz(\.rx\.cache)?$/i;
   system( "xz    -dc $archive | tar xvf - -T $list" ) if $archive =~ /\.txz$/i;
   system( "bzip2 -dc $archive | tar xvf - -T $list" ) if $archive =~ /\.tar\.bz2?$/i;
   unlink $list;
-  print "gzip  -dc $archive | tar xvf - -T $list";
   }
 else
   {

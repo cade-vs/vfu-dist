@@ -18,12 +18,11 @@ use strict;
 my $cmd = lc shift @ARGV;
 my $archive = shift @ARGV;
 my $ac=`ar t "$archive"`;
-my $at='gz';
-if( index( $ac, 'data.tar.xz' ) != -1 )
-  {
-  $at='xz';
-  }
-my $cache = "$archive.data.tar.$at.rx.cache";
+
+die "unsupported DEB package\n" unless $ac =~ /(data.tar.[a-z0-9]+)/;
+my $data = $1;
+
+my $cache = "$archive.$data.rx.cache";
 $cache =~ s/^(.+)\/([^\/]+)$/$2/;
 
 if( $cmd eq "l" || $cmd eq "v" || $cmd eq "x" )
@@ -31,14 +30,17 @@ if( $cmd eq "l" || $cmd eq "v" || $cmd eq "x" )
    if( ! -e "/tmp/$cache" )
      {
      # cache not found--fill it
-     system( qq[ umask 0077 ; ar p "$archive" data.tar.$at > "/tmp/$cache\" ] );
+     system( qq[ umask 0077 ; ar p "$archive" $data > "/tmp/$cache\" ] );
      }
    else
      {
      utime time(), time(), "/tmp/$cache"; # update last modification time of the cache
      }
-  chdir( "/tmp" );
-  system( "/usr/libexec/vfu/rx_tar", $cmd, $cache, @ARGV );
+  if( $cmd eq 'x' )
+    {
+    s/^/.\// for @ARGV;
+    }
+  system( "/usr/libexec/vfu/rx_tar", $cmd, "/tmp/$cache", @ARGV );
   }
 else
   {
