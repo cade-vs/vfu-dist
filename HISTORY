@@ -16,8 +16,8 @@
       ! bugfix
       % note
 
-   4.18: 31.Dec.2018 
-   
+   4.18: 31.Dec.2018
+
    + 1. Added estimate finish time reporting for copy/move operations.
    + 2. Added Autotools configure and compile (thanks to Andy Alt!)
    ! 3. Report available space instead of free space (root reserved).
@@ -25,28 +25,28 @@
    ! 5. Fixed directory size cache for larger than 999GB directories.
 
    4.17: 12.June.2018
-   
+
    + 1. Directory size calculations menu (key "Z") has new options:
                 * follow symlinks (WARNING: may cause loops!)
                 * stay on the same device/filesystem
    + 2. Dynamic files list allocation: i.e. low memory consumption and
         unlimited files list count (up to the available memory)
-        
+
    + 3. Added new rename tools:
-                * prefix selected file names with current date     
+                * prefix selected file names with current date
                 * prefix selected file names with current date+time
                 Tools (key "T") -> Rename tools (key "A")
 
    4.16: 05.May.2015
-   
+
    % 1. Verified that VFU (and vstring/vslib) compiles clean with clang :)
    + 2. Added option to show file/dir sizes either in IEC or SI units.
         (cheers Larry :))
-        
-   
+
+
    4.15: 17.Jan.2014
-   
-   ! 1. Fixed bug with directory name completion which freezes VFU when case 
+
+   ! 1. Fixed bug with directory name completion which freezes VFU when case
         insensitive completion options is enabled.
 
    4.14: 04.Jan.2014
@@ -59,14 +59,14 @@
    + 2. Added missing incremental search commands in the HELP :)
         (keys "S" and "Alt+S").
 
-   + 3. VFU (and VF before it) was designed to keep directories on top of 
-        the file list. There is flag for disabling this inside the code, 
+   + 3. VFU (and VF before it) was designed to keep directories on top of
+        the file list. There is flag for disabling this inside the code,
         but it was never visible. Now this long lost option is exported
         to the options menu. :)
 
    + 4. Added "Smart" Home/End keys navigation. When this option is enabled
         HOME and END keys will toggle between top and bottom of the files list
-        and firs/last directory or file. 
+        and firs/last directory or file.
         Example:
                  * first HOME will go to the beginning of the file list
                  * next HOME will go to the first file (not dir) in the list
