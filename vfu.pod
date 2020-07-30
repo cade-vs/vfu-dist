@@ -67,13 +67,13 @@ versions!
 B<vfu.conf> can be placed as any of:
 
  $HOME/.vfu/vfu.conf
- 
+
  $HOME/$RC_PREFIX/vfu/vfu.conf  (if $RC_PREFIX is exported)
- 
+
  /etc/vfu.conf
- 
+
  /usr/local/etc/vfu.conf
- 
+
  /usr/local/vfu.conf
 
 =head2 Other files location
@@ -81,7 +81,7 @@ B<vfu.conf> can be placed as any of:
 All other files including vfu.options are placed in:
 
  $HOME/.vfu/
- 
+
  $HOME/$RC_PREFIX/vfu/
 
 What is B<C<$RC_PREFIX>> and why to use it? Some more information for
@@ -105,7 +105,7 @@ However sometimes binary packages will be released, but not often.
 VFU packages are named in this way:
 
  vfu-X.xx.src.tgz
- 
+
 source package for version X.xx
 
  vfu-X.xx.bin.platform.tgz
