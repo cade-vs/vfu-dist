@@ -114,13 +114,13 @@ binary package for version X.xx for `platform' platform
 
 examples:
 
- vfu-4.00.src.tgz
+ vfu-4.18.src.tgz
 
- vfu-4.00.bin.linux.glibc.tgz
+ vfu-4.18.bin.linux.glibc.tgz
 
- vfu-4.00.bin.linux.libc5.tgz
+ vfu-4.18.bin.linux.libc5.tgz
 
- vfu-4.00.bin.dos.tgz
+ vfu-4.18.bin.dos.tgz
 
 All packages are TAR+GZIP .tgz, bz2 and zip are available on request.
 
@@ -165,6 +165,6 @@ unknown
 
  Vladi Belperchinov-Shabanski "Cade"
  <cade@biscom.net> <cade@datamax.bg>
- http://soul.datamax.bg/~cade/
- http://soul.datamax.bg/~cade/vfu
+ http://cade.datamax.bg/
+ http://cade.datamax.bg/vfu
 
