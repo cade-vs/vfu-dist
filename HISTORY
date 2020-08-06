@@ -15,6 +15,10 @@
       ! bugfix
       % note
 
+   4.21: 31.Jul.2020 
+   
+   + 1. Added ALT+- and ALT+BACKSPACE to exit current archive.
+
    4.20: 30.Jul.2020 
    
    + 1. Added estimate finish time reporting for copy/move operations.

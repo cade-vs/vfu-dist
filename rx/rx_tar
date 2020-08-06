@@ -14,13 +14,14 @@
 #
 #############################################################################
 use strict;
+use POSIX;
+
+umask 0077;
 
 my $cmd = lc shift @ARGV;
 my $archive = shift @ARGV;
 my $cache = "/tmp/$archive.rx.cache";
 $cache =~ s/^(\/tmp\/)(.+)\/([^\/]+)$/$1$3/;
-
-umask oct(077);
 
 if ( $cmd eq "l" || $cmd eq "v" )
    {
@@ -29,11 +30,11 @@ if ( $cmd eq "l" || $cmd eq "v" )
    if( ! -e $cache )
      {
      # cache not found--fill it
-     system( "umask 0077; tar tvf   \"$archive\"             > \"$cache\"" ) if $archive =~ /\.tar$/i;
-     system( "umask 0077; gzip  -dc \"$archive\" | tar tvf - > \"$cache\"" ) if $archive =~ /\.tar\.g?z(\.rx\.cache)?$/i;
-     system( "umask 0077; gzip  -dc \"$archive\" | tar tvf - > \"$cache\"" ) if $archive =~ /\.tgz$/i;
-     system( "umask 0077; xz    -dc \"$archive\" | tar tvf - > \"$cache\"" ) if $archive =~ /(\.txz|\.tar\.xz(\.rx\.cache)?)$/i;
-     system( "umask 0077; bzip2 -dc \"$archive\" | tar tvf - > \"$cache\"" ) if $archive =~ /\.tar\.bz2?$/i;
+     system( qq[ umask 0077; tar tvf   "$archive"             > "$cache" ] ) if $archive =~ /\.tar$/i;
+     system( qq[ umask 0077; gzip  -dc "$archive" | tar tvf - > "$cache" ] ) if $archive =~ /\.tar\.g?z(\.rx\.cache)?$/i;
+     system( qq[ umask 0077; gzip  -dc "$archive" | tar tvf - > "$cache" ] ) if $archive =~ /\.tgz$/i;
+     system( qq[ umask 0077; xz    -dc "$archive" | tar tvf - > "$cache" ] ) if $archive =~ /(\.txz|\.tar\.xz(\.rx\.cache)?)$/i;
+     system( qq[ umask 0077; bzip2 -dc "$archive" | tar tvf - > "$cache" ] ) if $archive =~ /\.tar\.bz2?$/i;
      }
    else
      {
@@ -70,17 +71,18 @@ elsif ( $cmd eq "x" )
   else
     {
     $list = "/tmp/$$.rx.list";
-    open( o, ">$list" );
-    chmod oct(600), $list;
-    print o "$_\n" for @ARGV;
-    close( o );
+
+    my $fo;
+    sysopen $fo, $list, O_CREAT | O_EXCL, 0600;
+    print $fo "$_\n" for @ARGV;
+    close $fo;
     }
-  system( "tar xvf   $archive             -T $list" ) if $archive =~ /\.tar$/i;
-  system( "gzip  -dc $archive | tar xvf - -T $list" ) if $archive =~ /\.tar\.g?z(\.rx\.cache)?$/i;
-  system( "gzip  -dc $archive | tar xvf - -T $list" ) if $archive =~ /\.tgz$/i;
-  system( "xz    -dc $archive | tar xvf - -T $list" ) if $archive =~ /\.tar\.xz(\.rx\.cache)?$/i;
-  system( "xz    -dc $archive | tar xvf - -T $list" ) if $archive =~ /\.txz$/i;
-  system( "bzip2 -dc $archive | tar xvf - -T $list" ) if $archive =~ /\.tar\.bz2?$/i;
+  system( qq[ tar xvf   "$archive"             -T "$list" ] ) if $archive =~ /\.tar$/i;
+  system( qq[ gzip  -dc "$archive" | tar xvf - -T "$list" ] ) if $archive =~ /\.tar\.g?z(\.rx\.cache)?$/i;
+  system( qq[ gzip  -dc "$archive" | tar xvf - -T "$list" ] ) if $archive =~ /\.tgz$/i;
+  system( qq[ xz    -dc "$archive" | tar xvf - -T "$list" ] ) if $archive =~ /\.tar\.xz(\.rx\.cache)?$/i;
+  system( qq[ xz    -dc "$archive" | tar xvf - -T "$list" ] ) if $archive =~ /\.txz$/i;
+  system( qq[ bzip2 -dc "$archive" | tar xvf - -T "$list" ] ) if $archive =~ /\.tar\.bz2?$/i;
   unlink $list;
   }
 else

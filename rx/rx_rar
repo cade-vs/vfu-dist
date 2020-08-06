@@ -15,6 +15,8 @@
 #############################################################################
 use strict;
 
+umask 0077;
+
 my $cmd = lc shift @ARGV;
 my $archive = shift @ARGV;
 my $cache = "/tmp/$archive.rx.cache";
@@ -27,8 +29,7 @@ if ( $cmd eq "l" || $cmd eq "v" )
    if( ! -e $cache )
      {
      # cache not found--fill it
-     system( "unrar v '$archive' > '$cache'" );
-     chmod oct(600), $cache; # a bit late but still... :)
+     system( qq[ umask 0077 ; unrar v "$archive" > "$cache" ] );
      }
    else
      {
@@ -74,10 +75,9 @@ elsif ( $cmd eq "x" )
   else
     {
     $list = "/tmp/$$.rx.list";
-    open( o, ">$list" );
-    chmod oct(600), $list;
-    print o "$_\n" for @ARGV;
-    close( o );
+    sysopen $fo, $list, O_CREAT | O_EXCL, 0600;
+    print $fo "$_\n" for @ARGV;
+    close $fo;
     }
   system( "unrar x $archive \@$list 1> /dev/null 2> /dev/null" );
   unlink $list;

@@ -2,7 +2,7 @@
 ### MAKEMAKE STARTS HERE #######################################################
 
 
-### Created by makemake.pl on Fri Apr  3 02:02:08 2020 #########################
+### Created by makemake.pl on Thu Aug  6 03:29:10 2020 #########################
 
 
 ### GLOBAL TARGETS #############################################################
@@ -24,12 +24,11 @@ link: mm_update link-modules
 ### GLOBAL (AND USER) DEFS #####################################################
 
 
-AR = ar rv
-CC = gcc
-LD = gcc
+AR ?= ar
+LD = $(CXX)
 MKDIR = mkdir -p
-MODULES = yascreen vstring vslib vfu
-RANLIB = ranlib
+MODULES = vstring vslib vfu
+RANLIB ?= ranlib
 RMDIR = rm -rf
 RMFILE = rm -f
 SRC = *.c *.cpp *.cc *.cxx
@@ -38,25 +37,21 @@ SRC = *.c *.cpp *.cc *.cxx
 ### MODULES ####################################################################
 
 modules:
-	$(MAKE) -C yascreen 
 	$(MAKE) -C vstring 
 	$(MAKE) -C vslib 
 	$(MAKE) -C vfu 
 
 clean-modules:
-	$(MAKE) -C yascreen clean
 	$(MAKE) -C vstring clean
 	$(MAKE) -C vslib clean
 	$(MAKE) -C vfu clean
 
 rebuild-modules:
-	$(MAKE) -C yascreen rebuild
 	$(MAKE) -C vstring rebuild
 	$(MAKE) -C vslib rebuild
 	$(MAKE) -C vfu rebuild
 
 link-modules:
-	$(MAKE) -C yascreen link
 	$(MAKE) -C vstring link
 	$(MAKE) -C vslib link
 	$(MAKE) -C vfu link

@@ -15,6 +15,8 @@
 #############################################################################
 use strict;
 
+umask 0077;
+
 my $CACHE_TTL = 16; # cache time to live in seconds
 
 #############################################################################
@@ -121,16 +123,17 @@ sub rx_tar
     else
       {
       $list_fn = "/tmp/$$.list.rxx.tmp";
-      open( o, ">$list_fn" );
-      chmod oct(600), $list_fn;
+      
+      sysopen my $fo, $list_fn, O_CREAT | O_EXCL, 0600;
+      
       for my $entry ( @_ ) # FIXME: handle @_
         {
         next if $entry eq '/';
         next if $entry eq '.';
         $entry =~ s/^\/(.+)$/$1/; # strip leading /, FIXME: make func
-        print o "$entry\n";
+        print $fo "$entry\n";
         }
-      close( o );
+      close $fo;
       }
     system( "                     tar xvf $archive -T $list_fn" ) if $archive =~ /\.tar$/i;
     system( "gzip  -dc $archive | tar xvf -        -T $list_fn" ) if $archive =~ /\.tar\.g?z(\.rx\.cache)?$/i;

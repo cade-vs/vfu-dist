@@ -14,6 +14,8 @@
 #############################################################################
 use strict;
 
+umask 0077;
+
 my $cmd = lc shift @ARGV;
 my $archive = shift @ARGV;
 my $cache = "/tmp/$archive.rx.cache";
@@ -28,8 +30,7 @@ if ( $cmd eq "l" || $cmd eq "v" )
    if( ! -e $cache )
      {
      # cache not found--fill it
-     system( "rpm2cpio \"$archive\" | cpio -tv --quiet > \"$cache\"" );
-     chmod oct(600), $cache; # a bit late but still... :)
+     system( qq[ umask 0077 ; rpm2cpio "$archive" | cpio -tv --quiet > "$cache" ] );
      }
    else
      {
@@ -69,10 +70,9 @@ elsif ( $cmd eq "x" )
   else
     {
     $list = "/tmp/$$.rx.list";
-    open( o, ">$list" );
-    chmod oct(600), $list;
-    print o "$_\n" for @ARGV;
-    close( o );
+    sysopen my $fo, $list, O_CREAT | O_EXCL, 0600;
+    print $fo "$_\n" for @ARGV;
+    close $fo;
     }
   system( "rpm2cpio $archive | cpio -iumd --quiet `cat $list`" );
   unlink $list;

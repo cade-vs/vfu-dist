@@ -15,6 +15,8 @@
 #############################################################################
 use strict;
 
+umask 0077;
+
 my $cmd = lc shift @ARGV;
 my $archive = shift @ARGV;
 my $ac=`ar t "$archive"`;
@@ -38,7 +40,17 @@ if( $cmd eq "l" || $cmd eq "v" || $cmd eq "x" )
      }
   if( $cmd eq 'x' )
     {
-    s/^/.\// for @ARGV;
+    for( @ARGV )
+      {
+      if( /^\@(.+)/ )
+        {
+        fix_list_names( $1 );
+        }
+      else
+        {
+        s/^(?!\.\/)/.\//;
+        }  
+      }
     }
   system( "/usr/libexec/vfu/rx_tar", $cmd, "/tmp/$cache", @ARGV );
   }
@@ -47,62 +59,31 @@ else
   die $0 . ": wrong command.\n";
   }
 
-=pod
-if ( $command eq "v" )
-   {
-   $dir = shift @ARGV;
-   if ( $dir ) { $dir .= "/" unless $dir =~ /\/$/; }
 
-   if ( $dir eq "DATA/" )
-     {
-     open( i, "ar p $archive data.tar.gz | gzip -dc | tar tvf - |");
-     while(<i>)
-       {
-       chop;
-       s/\s+->\s+\S+$//;
-       if (/^(.[\-rwxsStT]{9})\s+\S+\s+(\d+)\s+(\d\d\d\d)-(\d\d)-(\d\d) (\d\d):(\d\d)(:\d\d)?\s+(\S+[^\/])$/)
-         {
-         print "NAME:$9\nSIZE:$2\nMODE:$1\nTIME:$3$4$5$6$7\n\n";
-         }
-       }
-     close( i );
-     }
-   else
-     {
-     # these are standard ones
-     print "NAME:control\n\nNAME:debian-binary\n\nNAME:DATA/\n\n";
-     # FIXME: here should take ar list and get files' sizes etc...
-     }
-   } # view command ends here
-elsif ( $command eq "x" )
-   {
-   if ( $ARGV[0] eq "control" )
-      {
-      system( "ar p $archive control.tar.gz | gzip -d | tar xvf - control" );
-      }
-    elsif ( $ARGV[0] eq "debian-binary" )
-      {
-      system( "ar p $archive debian-binary > debian-binary" );
-      }
-    else
-      {
-      if ( $ARGV[0] =~ /^\@(.+)$/ )
-        {
-        $listfile = $1;
-        }
-      else
-        {
-        $listfile = "/tmp/rx_tar.list." . $$;
-        open( o, ">$listfile" );
-        while( $_ = shift @ARGV )
-          {
-          s/^DATA\///;
-          print o "$_\n";
-          }
-        close( o );
-        }
-      system( "mkdir -p DATA; cd DATA; ar p $archive data.tar.gz | gzip -d | tar xvf - -T $listfile" );
-      unlink $listfile;
-      }
-   }
-=cut
+sub fix_list_names
+{
+  my $fn  = shift; # file name
+  my @l = file_load_ar( $fn );
+  s/^(?!\.\/)/.\// for @l;
+  file_save( $fn, @l );
+  return 1;
+}
+
+sub file_load_ar
+{
+  my $fn  = shift; # file name
+  open( my $i, "<", $fn ) or return undef;
+  my @all = <$i>;
+  close $i;
+  return @all;
+}
+
+sub file_save
+{
+  my $fn = shift; # file name
+  
+  open( my $o, ">", $fn ) or return 0;
+  print $o @_;
+  close $o;
+  return 1;
+}

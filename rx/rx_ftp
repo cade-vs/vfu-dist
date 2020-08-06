@@ -22,9 +22,10 @@
 # - cache?
 #
 #############################################################################
-
-use Net::FTP;
 use strict;
+use Net::FTP;
+
+umask 0077;
 
 my $cmd = lc shift @ARGV;
 my $archive = shift @ARGV;
