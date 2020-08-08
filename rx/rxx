@@ -2,7 +2,7 @@
 #############################################################################
 #
 # RXX -- abstract archiver interface
-# (c) Vladi Belperchinov-Shabanski "Cade" 2002
+# Copyright (c) 2002-2020 Vladi Belperchinov-Shabanski "Cade" 
 # <cade@biscom.net> <cade.datamax.bg> http://cade.webbg.com
 # based on rx_* dispatcher and handlers for VFU File Manager
 #

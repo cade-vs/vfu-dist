@@ -2,8 +2,7 @@
 #############################################################################
 #
 # rx_rpm handler for VFU File Manager
-# (c) Ralph Muller <rmue@gmx.de> 2005
-# $Id: rx_rpm,v 1.2 2005/06/16 00:07:38 cade Exp $
+# (c) 2005 Ralph Muller <rmue@gmx.de>
 #
 # usage:
 #   rx_* l archive directory   # list archive directory 

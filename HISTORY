@@ -21,6 +21,10 @@
    + 2. Reposition larger menus and update menu labels.
    + 3. Bring back SIGWINCH for handling terminal resize.
         Unfortunately it works stable only with yascreen (vfu.yas).
+   + 4. Added tool for cloning or updaing to latest git snapshot:
+        
+          vfu-get-latest-git-snapshot.pl     
+   + 5. VFU exit path file is now created exclusively, owner RW only.
 
    4.20: 30.Jul.2020 
    
