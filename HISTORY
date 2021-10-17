@@ -15,6 +15,15 @@
       ! bugfix
       % note
 
+   4.22: xx.Dec.2020
+   
+   x 1. Removed useless ascending/descending Unsorted order :)
+   - 2. Removed compatibility arrange mode 'D' (used to be modify time)
+   - 3. Arrange by mode key is changed to 'D'.
+   + 4. Added new quick arrange swap key 'A' between NAME and CHANGE TIME.
+   ! 5. fixed panelizers (ALT+R) bug and remove sort order to keep incoming.
+   + 6. added 'Panelizee from current file' panelizer in file read menu (ALT+R).
+
    4.21: 07.Aug.2020 
    
    + 1. Added ALT+- and ALT+BACKSPACE to exit current archive.
