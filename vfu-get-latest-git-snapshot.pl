@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 ##############################################################################
 #
-# Copyright (c) 1996-2020 Vladi Belperchinov-Shabanski "Cade" 
+# Copyright (c) 1996-2021 Vladi Belperchinov-Shabanski "Cade" 
 #
 ##############################################################################
 use strict;

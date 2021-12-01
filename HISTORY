@@ -15,7 +15,7 @@
       ! bugfix
       % note
 
-   4.22: xx.Dec.2020
+   4.22: 01.Dec.2021
    
    x 1. Removed useless ascending/descending Unsorted order :)
    - 2. Removed compatibility arrange mode 'D' (used to be modify time)
