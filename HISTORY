@@ -2,9 +2,12 @@
    ----------------------------------------------------------------------
 
    VFU File Manager
-   by Vladi Belperchinov-Shabanski "Cade"
-   <cade@biscom.net>   <cade@datamax.bg>   <cade@epay.bg>
-   http://cade.datamax.bg/vfu/
+
+    1996-2022 (c) Vladi Belperchinov-Shabanski "Cade" 
+    <cade@noxrun.com> <cade@bis.bg> <cade@cpan.org>
+    http://cade.noxrun.com/projects/vfu
+    http://github.com/cade-vs/vfu-dist
+    http://github.com/cade-vs/vfu
 
    ----------------------------------------------------------------------
    HISTORY (CHANGE.LOG)
@@ -14,6 +17,12 @@
       x feature removed
       ! bugfix
       % note
+
+   4.23: 20.Feb.2022
+   
+   + 1. Added scroller feedback in main files list.
+   ! 2. Fixed possible overflow in tab expansion in See.
+   - 3. Review of all FIXMEs left :)
 
    4.22: 01.Dec.2021
    

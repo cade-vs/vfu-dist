@@ -163,8 +163,7 @@ unknown
 
 =head1 AUTHOR
 
- Vladi Belperchinov-Shabanski "Cade"
- <cade@biscom.net> <cade@datamax.bg>
- http://cade.datamax.bg/
- http://cade.datamax.bg/vfu
+ 1996-2022 (c) Vladi Belperchinov-Shabanski "Cade" 
+ <cade@noxrun.com> <cade@bis.bg> <cade@cpan.org>
+ http://cade.noxrun.com/projects/vfu
 
