@@ -18,6 +18,13 @@
       ! bugfix
       % note
 
+   4.24: xx.xxx.2022
+   
+   + 1. Added option for list scrolling paging. options are:
+          * 1 line (smooth scrolling with 1 line when on border of pagesize)
+          * 30% of the page size (default)
+          * 50% of the page size
+
    4.23: 20.Feb.2022
    
    + 1. Added scroller feedback in main files list.
