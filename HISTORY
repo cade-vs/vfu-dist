@@ -24,6 +24,10 @@
           * 1 line (smooth scrolling with 1 line when on border of pagesize)
           * 30% of the page size (default)
           * 50% of the page size
+          
+   + 2. Added extended info when calculating directory size. VFU now reports
+        files/dirs count in the traversed path and total size in short/human 
+        form and in bytes also.
 
    4.23: 20.Feb.2022
    
