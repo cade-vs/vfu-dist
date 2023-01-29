@@ -3,7 +3,7 @@
 
    VFU File Manager
 
-    1996-2022 (c) Vladi Belperchinov-Shabanski "Cade" 
+    1996-2023 (c) Vladi Belperchinov-Shabanski "Cade" 
     <cade@noxrun.com> <cade@bis.bg> <cade@cpan.org>
     http://cade.noxrun.com/projects/vfu
     http://github.com/cade-vs/vfu-dist
@@ -18,16 +18,25 @@
       ! bugfix
       % note
 
-   4.24: xx.xxx.2022
+   5.00: 30.Jan.2023
+
+   + 1. Added full wide char (unicode) support. VFU now implements Level 1
+        support. Filenames and text file contents are now assumed UTF8 and
+        internally VFU is using UTF32 for all string operations.
    
-   + 1. Added option for list scrolling paging. options are:
+   + 2. Added option for list scrolling paging. options are:
           * 1 line (smooth scrolling with 1 line when on border of pagesize)
           * 30% of the page size (default)
           * 50% of the page size
+   ! 3. %f, %F, %g and %G do not require quotes anymore. VFU will escape all
+        special characters in filenames.
           
-   + 2. Added extended info when calculating directory size. VFU now reports
+   + 4. Added extended info when calculating directory size. VFU now reports
         files/dirs count in the traversed path and total size in short/human 
         form and in bytes also.
+        
+   + 5. Added option in the dir size menu (key Z) to calculate dir sizes only
+        for directories without calculated size (missing sizes ones).
 
    4.23: 20.Feb.2022
    

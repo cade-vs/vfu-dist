@@ -100,8 +100,8 @@ sub read_archive
   while(<$i>)
     {
     chop;
-    s/\s+->\s+\S+$//; # no symlinks support?
-    my @D = split /\s+/;
+    s/\s+->\s+\S+?$//; # no symlinks support?
+    my @D = split /\s+/, $_, 6;
     my $N = $D[5]; # name
     my $M = $D[0]; # mode
 

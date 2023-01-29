@@ -2,7 +2,7 @@
     FREQUENTLY ASKED QUESTIONS ABOUT:
     VF File Manager for Unix/Linux ( VFU )
 
-    1996-2022 (c) Vladi Belperchinov-Shabanski "Cade" 
+    1996-2023 (c) Vladi Belperchinov-Shabanski "Cade" 
     <cade@noxrun.com> <cade@bis.bg> <cade@cpan.org>
     http://cade.noxrun.com/projects/vfu
     http://github.com/cade-vs/vfu-dist
@@ -10,9 +10,10 @@
 
 
 
-    1. What is `TP' field on the third line?
+    1. What is 'TY' (formerly 'TP') field on the third line?
 
        This stands for "type" and means:
+       
        [] -- directory
        <> -- link to directory
        -> -- link
@@ -22,17 +23,24 @@
        () -- FIFO (pipe)
        == -- block device
        -- -- regular file
+       
+       it is used for quick visual hint about file entry type.
 
 
     2. Does VFU follows directory links when calculating directory(ies) size?
 
        No. :)
+       
+       Well, not by default. There is an option to do so in the dir sizes 
+       menu (key Z) but it is not permanent option and will reset when 
+       VFU quits/starts.
 
 
     3. I cannot see entire filename?
 
-       Try '>' or '0' -- it will show only filenames... or
-       try `1'..`6' to toggle different info entries.
+       Try '0' -- it will show only filenames... or
+       try '1'..'6' to toggle different info entries.
+       Also available from the options menu (key O).
 
 
     4. What files are considered `executables' (i.e. marked `**')
@@ -40,9 +48,7 @@
        File is marked `**' if any of `x' modes are set (regardless
        owner, group, etc.) This means that if file has mode of
        -rwxr--r-- and you are not owner the file will be still marked
-       as `**' but you won't be able to execute it! This behavior may
-       be changed in the future but not for now. (in general `**' does
-       NOT mean that you can execute it)
+       as `**' but you won't be able to execute it! 
 
 
     5. Do I need to set `HOME' environment variable under DOS, and where
@@ -57,6 +63,9 @@
 
 
     7. How can I use `JumpToMountpoint' function under DOS?
+
+       NOTE: since 2023 VFU drops support for DOS/DJGPP/GO32.
+       However, you may still use pre-5.0 versions.
 
        The information for this function comes from the `/etc/mtab'
        file. This file show currently mounted file systems.
@@ -114,7 +123,7 @@
              will work out of the box.
 
 
-   10. What is `Name###' sort order? And why should I RTFM?! :)
+   10. What is `Name###' sort order? And why should I RTFM? :)
 
        This mode forces sort order as follows:
 
@@ -130,8 +139,7 @@
        ends with number, VFU will sort them in regard to the numeric
        values found at the ends of the filenames.
 
-       (technical note: real parsing re is "^(.*)([0123456789]+)(\\.(.*))?$" 
-        if you know what this means:))
+       tech note: RegExp used is "^(.*)([0123456789]+)(\\.(.*))?$" 
 
        NOTE: This mode drops all after the first dot!
        NOTE: This mode resets on exit!
@@ -152,7 +160,8 @@
        else
            1. leave it `as is'
            
-       If you don't like the expansion, you can switch it off: 
+       If you don't like the expansion, you can switch it off in the
+       options menu (key O): 
        
          Options(Toggles)/FilesMaskExpand and FileFindMaskExpand options.
 
@@ -161,11 +170,12 @@
 
        Wherever you need to enter mask! (file list masking, global
        select, file find, etc...)
-       You can turn it off form the `Options'
-       (key `O')
+       You can turn it off form the options menu (key O).
 
 
    14. Can I browse/view more than one file at the same time?
+
+       NOTE: as of early 2023 this is temporarily disabled.
 
        Yes! You have just to select needed files and press 'B'
        (browse). Then use `1'..`0' to switch between files/slots.
@@ -384,6 +394,8 @@
 
    23. Is it possible to see file sizes above 4GB properly?
 
+       NOTE: since version 5.0 (early 2023) this is not needed.
+
        Yes, you have to compile this way:
 
           export CCDEF="-D_FILE_OFFSET_BITS=64"
@@ -414,9 +426,8 @@
 
    99. I don't/do like feature X, can I turn it OFF/ON?
 
-       I tried to give option for every arguable behavior of
-       most features. So you have to check `Options' menu (key O
-       inside VFU) and vfu.conf file to find out how to solve the
-       problem. If this doesn't help contact me...
+       VFU has a lot of options to alternate behaviour.
+       Check in the options menu (key O) if there is applicable toggle.
+       If not, contact me to discuss it :)
 
 
