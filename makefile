@@ -1,65 +1,65 @@
+PKG_CONFIG?=pkg-config
+YASCREEN_LD?=$(shell $(PKG_CONFIG) --libs yascreen)
+NCURSES_LD?=$(shell $(PKG_CONFIG) --libs ncursesw)
 
-### MAKEMAKE STARTS HERE #######################################################
+BINS:=vfu/vfu vfu/vfu.yas
+ifeq ($(YASCREEN_LD),)
+	BINS:=$(filter-out vfu/vfu.yas,$(BINS))
+endif
+ifeq ($(NCURSES_LD),)
+	BINS:=$(filter-out vfu/vfu,$(BINS))
+endif
 
+ifeq ("$(V)","1")
+Q:=
+E:=@true
+else
+Q:=@
+E:=@echo
+endif
 
-### Created by makemake.pl on Thu Aug  6 03:29:10 2020 #########################
+all: $(BINS)
 
+vfu/vfu: vstring/libvstring.a vslib/libvslib.a vslib/libvscon.a
+	$(E) MAKE vfu
+	$(Q)$(MAKE) -C vfu vfu
 
-### GLOBAL TARGETS #############################################################
+vfu/vfu.yas: vstring/libvstring.a vslib/libvslib.a vslib/libvscony.a
+	$(E) MAKE vfu.yas
+	$(Q)$(MAKE) -C vfu vfu.yas
 
-default: mm_update all
+vstring/libvstring.a:
+	$(E) MAKE libvstring.a
+	$(Q)$(MAKE) -C vstring libvstring.a
 
-re: mm_update rebuild
+vslib/libvslib.a:
+	$(E) MAKE libvslib.a
+	$(Q)$(MAKE) -C vslib libvslib.a
 
-li: mm_update link
+vslib/libvscon.a:
+	$(E) MAKE libvscon.a
+	$(Q)$(MAKE) -C vslib libvscon.a
 
-all: mm_update modules 
+vslib/libvscony.a:
+	$(E) MAKE libvscony.a
+	$(MAKE) -C vslib libvscony.a
 
-clean: mm_update clean-modules 
+clean: clean-vslib clean-vstring clean-vfu
 
-rebuild: mm_update rebuild-modules 
+clean-vslib:
+	$(E) CLEAN vslib
+	$(Q)$(MAKE) --no-print-directory -C vslib clean
 
-link: mm_update link-modules 
+clean-vstring:
+	$(E) CLEAN vstring
+	$(Q)$(MAKE) --no-print-directory -C vstring clean
 
-### GLOBAL (AND USER) DEFS #####################################################
+clean-vfu:
+	$(E) CLEAN vfu
+	$(Q)$(MAKE) --no-print-directory -C vfu clean
 
+re:
+	$(Q)$(MAKE) --no-print-directory clean
+	$(Q)$(MAKE) --no-print-directory -j
 
-AR ?= ar
-LD = $(CXX)
-MKDIR = mkdir -p
-MODULES = vstring vslib vfu
-RANLIB ?= ranlib
-RMDIR = rm -rf
-RMFILE = rm -f
-SRC = *.c *.cpp *.cc *.cxx
-
-
-### MODULES ####################################################################
-
-modules:
-	$(MAKE) -C vstring 
-	$(MAKE) -C vslib 
-	$(MAKE) -C vfu 
-
-clean-modules:
-	$(MAKE) -C vstring clean
-	$(MAKE) -C vslib clean
-	$(MAKE) -C vfu clean
-
-rebuild-modules:
-	$(MAKE) -C vstring rebuild
-	$(MAKE) -C vslib rebuild
-	$(MAKE) -C vfu rebuild
-
-link-modules:
-	$(MAKE) -C vstring link
-	$(MAKE) -C vslib link
-	$(MAKE) -C vfu link
-
-
-mm_update:
-	
-
-
-### MAKEMAKE ENDS HERE #########################################################
-
+.PHONY: all clean clean-vfu clean-vslib clean-vstring re
