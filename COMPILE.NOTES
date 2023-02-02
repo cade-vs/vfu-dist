@@ -11,7 +11,7 @@
  
      try to use `build.netbsd'...
      If you fail to compile it try one of:
-     1. get newer vfu version at http://soul.datamax.bg/~cade/vfu
+     1. get newer vfu version at https://cade.noxrun.com/projects/vfu
      2. mailto: Hubert Feyrer <hubertf@netbsd.org>
         Hubert Feyrer is official VFU maintainer for NetBSD platform.
      3. mailto: Vladi Belperchinov-Shabanski <cade@biscom.net>

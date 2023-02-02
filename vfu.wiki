@@ -240,6 +240,6 @@ feh. i.e. It is now possible to open a folder of pictures using feh or a folder 
 But the best way to find out about vfu (and most other programs) is to make a backup of the file and then play around with it to see what you can get it to do.
 
 == Links ==
-[[http://cade.datamax.bg/vfu/|vfu homepage]]
+[[https://cade.noxrun.com/projects/vfu|vfu homepage]]
 
 CategoryDocumentation

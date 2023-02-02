@@ -33,15 +33,15 @@
   VFU works in this way and I have got always $RC_PREFIX defined
   to `etc' ( i.e. vfu.conf goes in `$HOME/etc/.vfu/' ).
 
-  NOTE: The text above is probably more than 10 years old :) I don't know
+  NOTE: The text above is probably more than 20 years old :) I don't know
   for wide-spread idea to keep all dot files separate but lately $HOME/.config
   started to gather more and more configuration files, so I think that is a
   safe choice :)
   
  
                            Vladi Belperchinov-Shabanski
-                           <cade@biscom.net> <cade@datamax.bg>
-                           http://cade.datamax.bg/vfu
+                           <cade@biscom.net> <cade@noxrun.com>
+                           https://cade.noxrun.com/projects/vfu
   ------------------------------------------------------------------------
  
  
