@@ -1,0 +1,29 @@
+name: C/C++ CI
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches: master
+  pull_request:
+    branches: master
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install dependencies
+      run: sudo apt install -y pcre2
+    - name: Clone sources
+      run: |
+        git clone --depth 1 https://github.com/cade-vs/vfu
+        git clone --depth 1 https://github.com/cade-vs/vslib
+        git clone --depth 1 https://github.com/cade-vs/vstring
+        git clone --depth 1 https://github.com/bbonev/yascreen
+    - name: Build
+      run: |
+        make -C yascreen
+        export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${PWD}/yascreen
+        make -j$(nproc)
