@@ -73,7 +73,7 @@ jobs:
 
     - name: Build
       run: |
-        gcc --version
+        cc --version
         make -C yascreen
         export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${PWD}/yascreen
         export CFLAGS="${CFLAGS} -I${PWD}/yascreen"
