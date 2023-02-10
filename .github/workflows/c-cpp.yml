@@ -24,6 +24,7 @@ jobs:
         git clone --depth 1 https://github.com/bbonev/yascreen
     - name: Build
       run: |
+        gcc --version
         make -C yascreen
         export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${PWD}/yascreen
         make -j$(nproc)
