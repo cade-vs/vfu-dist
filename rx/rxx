@@ -93,9 +93,6 @@ sub rx_tar
 
     my $content = rx_tar_read_archive( $cache );
 
-    use Data::Dumper;
-    print Dumper( $content );
-
       if ( $cmd eq "l" )
         {
         $dir .= "/" unless $dir =~ /\/$/;

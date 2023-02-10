@@ -25,15 +25,17 @@ for( glob "/tmp/*.rx.cache" )
   unlink $_;
   }
 
-my $rx = choose( $file ) or die "$0: this file type is not nown to me, sorry\n";
+my $rx = choose( $file ) or die "$0: this file type is not known to me, sorry\n";
 
-exec( '/usr/libexec/vfu/'.$rx, @ARGV );
+exec_if_exists( "/usr/libexec/vfu/$rx", @ARGV );
+exec_if_exists( "$ENV{HOME}/bin/$rx", @ARGV );
+die "$0: cannot find and/or execute [$rx]\n";
 
 sub choose
 {
   local $_ = shift;
-  return "rx_tar" if /\.(?:tar(?:\.(?:z|gz|xz|bz2))?|t[bgx]z)$/i;
-  return "rx_zip" if /\.(?:zip|jar|pk3|egg|maff)$/i;
+  return "rx_tar" if /\.(tar(\.(z|gz|xz|bz2))?|t[bgx]z)$/i;
+  return "rx_zip" if /\.(zip|jar|pk3|egg|maff)$/i;
   return "rx_deb" if /\.deb$/i;
   return "rx_ftp" if /\.ftp$/i;
   return "rx_rar" if /\.rar$/i;
@@ -46,3 +48,9 @@ sub file_mtime
   return (stat($_[0]))[9];
 }
 
+sub exec_if_exists
+{
+  my $rxbin = shift;
+  return undef unless -x $rxbin;
+  exec( $rxbin, @_ );
+}

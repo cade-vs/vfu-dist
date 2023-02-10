@@ -18,6 +18,18 @@
       ! bugfix
       % note
 
+   5.02: 11.Feb.2023 (includes 5.01 changes)
+   
+   ! 1. proper unicode padding for uid/gid/hostname
+   ! 2. refresh views cleanup
+   ! 3. init data setup cleanup
+   + 4. dir sizes menu: added "missing dirs size calc" (keys Z, M)
+   ! 5. load settings loading optimized
+   ! 6. added getdirname helper menu ctrl-o
+   + 7. dir menu allows negative-xy
+   ! 8. get dir name glob and complete are fixed
+   + 9. added option in dir sizes menu (key Z) to delete cache
+
    5.00: 30.Jan.2023
 
    + 1. Added full wide char (unicode) support. VFU now implements Level 1

@@ -41,8 +41,8 @@ if ( $cmd eq "l" || $cmd eq "v" )
      }
 
    my $content = read_archive( $cache );
-   use Data::Dumper;
-   print Dumper( $content );
+#   use Data::Dumper;
+#   print Dumper( $content );
 
     if ( $cmd eq "l" )
       {
@@ -69,11 +69,11 @@ elsif ( $cmd eq "x" )
     }
   else
     {
-    $list = "/tmp/$$.rx.list";
+    $list = "/tmp/rx.$$.rxlist";
 
-    my $fo;
-    sysopen $fo, $list, O_CREAT | O_EXCL, 0600;
+    sysopen my $fo, $list, O_CREAT | O_EXCL | O_RDWR, 0600;
     print $fo "$_\n" for @ARGV;
+    print STDERR "[$_]\n" for @ARGV;
     close $fo;
     }
   system( qq[ tar xvf   "$archive"             -T "$list" ] ) if $archive =~ /\.tar$/i;
@@ -104,6 +104,9 @@ sub read_archive
     my @D = split /\s+/, $_, 6;
     my $N = $D[5]; # name
     my $M = $D[0]; # mode
+
+#use Data::Dumper;
+#print STDERR Dumper( $_, \@D, $N );
 
     # strip leading /s
     $N =~ s/^\.\///;
