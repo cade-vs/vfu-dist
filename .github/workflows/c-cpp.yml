@@ -53,9 +53,14 @@ jobs:
           fi
         else
           CXX=clang++
-          FLTO=
+          if [ "$($CC -dumpversion|tr . ' '|awk '{print $1}')" -ge 11 ]; then
+            FLTO=
+          else
+            FLTO="NO_FLTO=1 CFLAGS=\"$CFLAGS -flto\""
+          fi
         fi
         echo "CXX=${CXX}" >> $GITHUB_ENV
+        echo "FLTO=${FLTO}" >> $GITHUB_ENV
 
     - name: Show info
       run: |
