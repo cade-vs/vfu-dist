@@ -85,7 +85,9 @@ jobs:
 
     - if: ${{ contains(matrix.build.os, 'ubuntu') && matrix.build.container == null }}
       run: |
-        sudo apt-get install -y libncurses-dev
+        sudo apt-get install -y \
+        libncurses-dev  \
+        libpcre2-dev
 
     #- if: ${{ matrix.cc == 'clang' && matrix.os != 'macos-latest' }}
       #run: sudo apt-get install -y $CC $CXX
