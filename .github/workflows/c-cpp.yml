@@ -88,6 +88,8 @@ jobs:
 
     - name: Build
       run: |
+        cc --version
+        make -C yascreen
         export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${PWD}/yascreen
         echo flto options $FLTO
         $CC --version
