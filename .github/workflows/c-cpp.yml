@@ -46,8 +46,14 @@ jobs:
       run: |
         if [ "$CC" = "gcc" ]; then
           CXX=g++
+          if [ "$($CC -dumpversion|tr . ' '|awk '{print $1}')" -ge 10 ]; then
+            FLTO=
+          else
+            FLTO='NO_FLTO=1'
+          fi
         else
           CXX=clang++
+          FLTO=
         fi
         echo "CXX=${CXX}" >> $GITHUB_ENV
 
@@ -73,9 +79,7 @@ jobs:
 
     - name: Build
       run: |
-        export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${PWD}/yascreen
-        export CFLAGS="${CFLAGS} -I${PWD}/yascreen"
-        make -C yascreen
+        make -C yascreen install $FLTO
         make -C vstring
         make -C vslib
         make -C vfu
