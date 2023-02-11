@@ -56,7 +56,7 @@ jobs:
           if [ "$($CC -dumpversion|tr . ' '|awk '{print $1}')" -ge 13 ]; then
             FLTO=
           else
-            FLTO="NO_FLTO=1 CFLAGS=\"$CFLAGS -flto\""
+            FLTO="NO_FLTO=1 CFLAGS=-flto"
           fi
         fi
         echo "CXX=${CXX}" >> $GITHUB_ENV
