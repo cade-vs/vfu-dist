@@ -80,7 +80,7 @@ jobs:
     - name: Build
       run: |
         export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${PWD}/yascreen
-        make -C yascreen $FLTO PREFIX=${PWD} INCDIR=yascreen LIBDIR=yascreen
-        make -C vstring
-        make -C vslib
-        make -C vfu
+        make -C yascreen $FLTO PREFIX=${PWD} INCDIR=/yascreen LIBDIR=/yascreen
+        make -C vstring V=1
+        make -C vslib V=1
+        make -C vfu V=1
