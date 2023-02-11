@@ -63,6 +63,8 @@ jobs:
         fi
         echo "CXX=${CXX}" >> $GITHUB_ENV
         echo "FLTO=${FLTO}" >> $GITHUB_ENV
+        echo "AR=gcc-ar" >> $GITHUB_ENV
+        echo "RANLIB=gcc-ranlib" >> $GITHUB_ENV
 
     - name: Show info
       run: |
