@@ -31,8 +31,10 @@ jobs:
           - name: Slackware
             os: ubuntu-20.04
             container: 'andy5995/slackware-build-essential:15.0'
+            cc: gcc
           - name: macos-latest
             os: macos-latest
+            cc: clang
 
     runs-on: ${{ matrix.build.os }}
     container: ${{ matrix.build.container }}
