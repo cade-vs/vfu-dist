@@ -79,6 +79,8 @@ jobs:
 
     - name: Build
       run: |
+        # we don't need the actual man page in CI
+        touch yascreen/yascreen.3
         make -C yascreen install $FLTO
         make -C vstring
         make -C vslib
