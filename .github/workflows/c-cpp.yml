@@ -53,7 +53,7 @@ jobs:
           fi
         else
           CXX=clang++
-          if [ "$($CC -dumpversion|tr . ' '|awk '{print $1}')" -ge 11 ]; then
+          if [ "$($CC -dumpversion|tr . ' '|awk '{print $1}')" -ge 13 ]; then
             FLTO=
           else
             FLTO="NO_FLTO=1 CFLAGS=\"$CFLAGS -flto\""
