@@ -31,8 +31,10 @@ jobs:
           - name: Slackware
             os: ubuntu-20.04
             container: 'andy5995/slackware-build-essential:15.0'
+            cc: gcc
           - name: macos-latest
             os: macos-latest
+            cc: clang
 
     runs-on: ${{ matrix.build.os }}
     container: ${{ matrix.build.container }}
@@ -46,10 +48,23 @@ jobs:
       run: |
         if [ "$CC" = "gcc" ]; then
           CXX=g++
+          if [ "$($CC -dumpversion|tr . ' '|awk '{print $1}')" -ge 10 ]; then
+            FLTO=
+          else
+            FLTO='NO_FLTO=1'
+          fi
         else
           CXX=clang++
+          if [ "$($CC -dumpversion|tr . ' '|awk '{print $1}')" -ge 13 ]; then
+            FLTO=
+          else
+            FLTO="NO_FLTO=1 CFLAGS=-flto"
+          fi
         fi
         echo "CXX=${CXX}" >> $GITHUB_ENV
+        echo "FLTO=${FLTO}" >> $GITHUB_ENV
+        echo "AR=gcc-ar" >> $GITHUB_ENV
+        echo "RANLIB=gcc-ranlib" >> $GITHUB_ENV
 
     - name: Show info
       run: |
@@ -76,8 +91,9 @@ jobs:
         cc --version
         make -C yascreen
         export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:${PWD}/yascreen
-        export CFLAGS="${CFLAGS} -I${PWD}/yascreen"
-        make -C yascreen
-        make -C vstring
-        make -C vslib
-        make -C vfu
+        echo flto options $FLTO
+        $CC --version
+        make -C yascreen $FLTO PREFIX=${PWD} INCDIR=/yascreen LIBDIR=/yascreen
+        make -C vstring V=1 $FLTO
+        make -C vslib V=1 $FLTO
+        make -C vfu V=1 $FLTO
