@@ -34,6 +34,7 @@ if ( $cmd eq "l" || $cmd eq "v" )
      system( qq[ umask 0077; gzip  -dc "$archive" | tar tvf - > "$cache" ] ) if $archive =~ /\.tgz$/i;
      system( qq[ umask 0077; xz    -dc "$archive" | tar tvf - > "$cache" ] ) if $archive =~ /(\.txz|\.tar\.xz(\.rx\.cache)?)$/i;
      system( qq[ umask 0077; bzip2 -dc "$archive" | tar tvf - > "$cache" ] ) if $archive =~ /\.tar\.bz2?$/i;
+     system( qq[ umask 0077; zstd  -dc "$archive" | tar tvf - > "$cache" ] ) if $archive =~ /\.tar\.zst$/i;
      }
    else
      {
@@ -82,6 +83,7 @@ elsif ( $cmd eq "x" )
   system( qq[ xz    -dc "$archive" | tar xvf - -T "$list" ] ) if $archive =~ /\.tar\.xz(\.rx\.cache)?$/i;
   system( qq[ xz    -dc "$archive" | tar xvf - -T "$list" ] ) if $archive =~ /\.txz$/i;
   system( qq[ bzip2 -dc "$archive" | tar xvf - -T "$list" ] ) if $archive =~ /\.tar\.bz2?$/i;
+  system( qq[ zstd  -dc "$archive" | tar xvf - -T "$list" ] ) if $archive =~ /\.tar\.zst$/i;
   unlink $list;
   }
 else

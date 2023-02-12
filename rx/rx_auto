@@ -34,7 +34,7 @@ die "$0: cannot find and/or execute [$rx]\n";
 sub choose
 {
   local $_ = shift;
-  return "rx_tar" if /\.(tar(\.(z|gz|xz|bz2))?|t[bgx]z)$/i;
+  return "rx_tar" if /\.(tar(\.(z|gz|xz|bz2|zst))?|t[bgx]z)$/i;
   return "rx_zip" if /\.(zip|jar|pk3|egg|maff)$/i;
   return "rx_deb" if /\.deb$/i;
   return "rx_ftp" if /\.ftp$/i;
