@@ -18,6 +18,10 @@
       ! bugfix
       % note
 
+   5.05: 12.Feb.2023 (11 minutes later)
+   
+   + 1. Added rx support for *.tar.zst archives.
+   
    5.04: 12.Feb.2023 (includes 5.03 changes)
 
    ! 1. Fixed filename matching for corner cases.
