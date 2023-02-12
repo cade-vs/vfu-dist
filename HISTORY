@@ -18,6 +18,8 @@
       ! bugfix
       % note
 
+   5.07: 12.Feb.2023 (yeah...)
+   
    5.05: 12.Feb.2023 (11 minutes later)
    
    + 1. Added rx support for *.tar.zst archives.

@@ -1,6 +1,6 @@
 Begin3
 Title:          VFU File Manager
-Version:        5.05
+Version:        5.07
 Entered-date:   12FEB2023
 Description:    VFU is console (text mode) file manager for UNIX.
                 It has all usual file oprations plus more:
@@ -20,7 +20,7 @@ Keywords:       console file manager unix portable
 Author:         cade@noxrun.com (Vladi Belperchinov-Shabanski)
 Maintained-by:  cade@bis.bg     (Vladi Belperchinov-Shabanski)
 Primary-site:   http://cade.noxrun.com/projects/vfu/
-                290kB vfu-5.05.tar.gz
+                290kB vfu-5.07.tar.gz
 Original-site:  http://cade.noxrun.com/projects/vfu/
 Platforms:      UNIX (Linux, NetBSD, Mac OS X, Solaris), DOS/Win9X
 Copying-policy: GPL
