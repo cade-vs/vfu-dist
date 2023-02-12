@@ -18,6 +18,11 @@
       ! bugfix
       % note
 
+   5.04: 12.Feb.2023 (includes 5.03 changes)
+
+   ! 1. Fixed filename matching for corner cases.
+   ! 2. Fixed rx_auto searching.
+
    5.02: 11.Feb.2023 (includes 5.01 changes)
    
    ! 1. proper unicode padding for uid/gid/hostname
