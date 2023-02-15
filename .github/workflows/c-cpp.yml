@@ -78,10 +78,11 @@ jobs:
         git clone --depth 1 https://github.com/cade-vs/vstring
         git clone --depth 1 https://github.com/bbonev/yascreen
 
-    #- if: ${{ contains(matrix.os, 'ubuntu') }}
-      #run: |
-        #sudo apt-get update -qq
-        #sudo apt-get upgrade -y -qq
+    - if: ${{ contains(matrix.build.os, 'ubuntu') && matrix.build.container == null }}
+      run: |
+        sudo apt-get update -qq
+        sudo apt-get upgrade -y -qq
+        sudo apt-get install -y libpcre2-8-0 libpcre2-32-0
 
     #- if: ${{ matrix.cc == 'clang' && matrix.os != 'macos-latest' }}
       #run: sudo apt-get install -y $CC $CXX
