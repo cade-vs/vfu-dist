@@ -18,6 +18,28 @@
       ! bugfix
       % note
 
+   5.08: 06.Mar.2023
+   
+   ! 1. fixed problem with directories with leading spaces in the name.
+   ! 2. fixed problem with full-name placehoders %F and %G in shell externals.
+   + 3. added new shell place-holder %h and %H, which equals to either 
+        %f and %F if no files are selected or %g and %G otherwise.
+        
+        the reason to add as separate placeholder is to allow using
+        both %f and %g in the same shell line but avoid the problem that
+        %g may point to %f, which is not always true.
+        
+        for example you may want to have shell external which adds selected 
+        files (%g) to pointed archive (%f) but do not want the archive
+        itself to be added to the same archive (i.e. %g is equal to %f if no
+        selection.)
+        
+        in all the rest cases where you would want to follow expected
+        behaviour to use selected files or if no selection, just the current
+        one, use %h and %H.
+        
+   ! 4. fixed %e     
+
    5.07: 12.Feb.2023 (yeah...)
    
    5.05: 12.Feb.2023 (11 minutes later)
