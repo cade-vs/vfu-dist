@@ -423,6 +423,10 @@
 
        -- Ctrl+A removes rightmost directory level from the typed path
 
+   25. What are those "*"s and "!"s appended to file time?
+   
+       "*" means that time is in the last 23 hours.
+       "!" means that time is in the future.
 
    99. I don't/do like feature X, can I turn it OFF/ON?
 

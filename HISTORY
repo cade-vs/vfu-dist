@@ -34,11 +34,14 @@
         itself to be added to the same archive (i.e. %g is equal to %f if no
         selection.)
         
-        in all the rest cases where you would want to follow expected
-        behaviour to use selected files or if no selection, just the current
-        one, use %h and %H.
+        in all other cases where you would want to follow common behaviour to 
+        use selected files or if no selection, just the current one, 
+        use %h and %H.
         
    ! 4. fixed %e     
+   + 5. added time hint. if file time is in the last 23 hours, time will be
+        appended with an '*' and time will show day name and seconds also.
+        if time is in the future, "!" will be appended.
 
    5.07: 12.Feb.2023 (yeah...)
    
