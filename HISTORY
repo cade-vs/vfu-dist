@@ -22,6 +22,8 @@
    
    ! 1. fixed problem with some tools (key "T", tools menu) when current 
         directory has no entries.
+        
+   ! 2. fixed shell escaping for pipe char (and % jtbs)     
 
    5.08: 06.Mar.2023
    
