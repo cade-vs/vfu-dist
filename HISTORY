@@ -18,6 +18,11 @@
       ! bugfix
       % note
 
+   5.09: xx.Mar.2023
+   
+   ! 1. fixed problem with some tools (key "T", tools menu) when current 
+        directory has no entries.
+
    5.08: 06.Mar.2023
    
    ! 1. fixed problem with directories with leading spaces in the name.
