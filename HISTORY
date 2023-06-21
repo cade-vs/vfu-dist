@@ -18,7 +18,7 @@
       ! bugfix
       % note
 
-   5.09: xx.Mar.2023
+   5.09: 22.Jun.2023
    
    ! 1. fixed problem with some tools (key "T", tools menu) when current 
         directory has no entries.

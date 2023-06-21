@@ -1,7 +1,7 @@
 Begin3
 Title:          VFU File Manager
-Version:        5.07
-Entered-date:   12FEB2023
+Version:        5.09
+Entered-date:   22JUN2023
 Description:    VFU is console (text mode) file manager for UNIX.
                 It has all usual file oprations plus more:
                 - extended completion and wildcard expansion
