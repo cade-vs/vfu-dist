@@ -18,6 +18,14 @@
       ! bugfix
       % note
 
+   5.10: ??.???.2023
+   
+   + 1. Added [ and ] keys to change dir to the previous or next dir in the
+        parent's list (also Alt+Up and Alt+Dn as alternatives).
+        
+   + 2. Added option to show symlinks' own details as mode/ownership/size,
+        instead the target's (default behaviour).     
+
    5.09: 22.Jun.2023
    
    ! 1. fixed problem with some tools (key "T", tools menu) when current 
