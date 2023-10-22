@@ -38,7 +38,7 @@
 
     3. I cannot see entire filename?
 
-       Try '0' -- it will show only filenames... or
+       Try '0' -- it will show only filenames or
        try '1'..'6' to toggle different info entries.
        Also available from the options menu (key O).
 
@@ -48,7 +48,7 @@
        File is marked `**' if any of `x' modes are set (regardless
        owner, group, etc.) This means that if file has mode of
        -rwxr--r-- and you are not owner the file will be still marked
-       as `**' but you won't be able to execute it! 
+       as `**' but you won't be able to execute it.
 
 
     5. Do I need to set `HOME' environment variable under DOS, and where
@@ -427,6 +427,16 @@
    
        "*" means that time is in the last 23 hours.
        "!" means that time is in the future.
+
+   26. When file is a symlink, what information VFU shows about it?
+   
+       Traditionally VFU shows all the information of the symlink's target.
+       Since 5.10, VFU has option to show symlink own details, which include
+       mode (only 'l' flag is meaningful), ownership and size (the length of
+       the filename which symlink points to). The options is accessible vi
+       "Options" menu (key 'O'), then toggle "Show symlink stats" (key 'l').
+       VFU will not reread current file list to update symlink info after 
+       options changed.
 
    99. I don't/do like feature X, can I turn it OFF/ON?
 

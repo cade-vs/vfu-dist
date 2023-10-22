@@ -25,6 +25,10 @@
         
    + 2. Added option to show symlinks' own details as mode/ownership/size,
         instead the target's (default behaviour).     
+        
+   ! 3. Fixed index count for entries lists above 1M.
+   
+   ! 4. Enabled back the screen redrwa on sigwinch.     
 
    5.09: 22.Jun.2023
    
