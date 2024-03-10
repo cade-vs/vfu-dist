@@ -20,15 +20,18 @@
 
    5.10: ??.???.2023
    
-   + 1. Added [ and ] keys to change dir to the previous or next dir in the
-        parent's list (also Alt+Up and Alt+Dn as alternatives).
+   + 1. Added "[" and "]" keys to change dir to the previous or next dir 
+        in the parent's list (also Alt+Up and Alt+Dn as alternatives).
         
    + 2. Added option to show symlinks' own details as mode/ownership/size,
         instead the target's (default behaviour).     
         
    ! 3. Fixed index count for entries lists above 1M.
    
-   ! 4. Enabled back the screen redrwa on sigwinch.     
+   ! 4. Enabled back the screen redrwa on sigwinch.
+   
+   + 5. Added CTRL+E key to skip line info and go instantly to end of file 
+        when browsing file and waiting key END to scroll to the end of file.
 
    5.09: 22.Jun.2023
    
